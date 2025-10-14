@@ -147,8 +147,8 @@ export default function Home() {
             color: '#64748b',
             lineHeight: '1.6'
           }}>
-            Transform your marketing strategy with AI-powered insights and data-driven campaigns. 
-            Reach the right audience, at the right time, with the right message.
+            Scale your business outreach with AI-powered personalization and intelligent automation. 
+            Reach more prospects, at the right moment, with tailored messages.
           </p>
           <a href="#contact" style={{
             display: 'inline-block',
