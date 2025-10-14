@@ -54,6 +54,8 @@
   --radius: 0.5rem;
 }
 
+/* Dark mode disabled - preserving light color scheme */
+/*
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #020617;
@@ -71,6 +73,7 @@
     --ring: #dbeafe;
   }
 }
+*/
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
