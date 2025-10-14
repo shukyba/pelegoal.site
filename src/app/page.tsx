@@ -23,14 +23,15 @@ export default function Home() {
           alignItems: 'center'
         }}>
           <h1 style={{ 
-            fontSize: 'clamp(1.5rem, 4vw, 2rem)',
-            fontWeight: 700
+            fontSize: 'clamp(1.25rem, 4vw, 2rem)',
+            fontWeight: 700,
+            whiteSpace: 'nowrap'
           }}>
             Pele.<span style={{ color: 'var(--brand-purple)' }}>Goal.</span>
           </h1>
-          <nav style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+          <nav className="header-nav" style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
             {/* Sign In Button */}
-            <a href={LINKS.auth.signIn} style={{ 
+            <a href={LINKS.auth.signIn} className="header-btn-signin" style={{ 
               color: 'rgba(255, 255, 255, 0.9)', 
               textDecoration: 'none',
               transition: 'all 0.3s ease',
@@ -41,7 +42,8 @@ export default function Home() {
               gap: '8px',
               fontSize: '0.95rem',
               fontWeight: 500,
-              border: '1px solid rgba(255, 255, 255, 0.2)'
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              whiteSpace: 'nowrap'
             }} 
             onMouseOver={(e) => {
               e.currentTarget.style.color = 'white';
@@ -54,15 +56,15 @@ export default function Home() {
               e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
             }}>
               {/* User Icon */}
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ flexShrink: 0 }}>
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" strokeLinecap="round" strokeLinejoin="round"/>
                 <circle cx="12" cy="7" r="4" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-              Sign In
+              <span className="header-signin-text">Sign In</span>
             </a>
 
             {/* Sign Up Button - Stands Out */}
-            <a href={LINKS.auth.signUp} style={{ 
+            <a href={LINKS.auth.signUp} className="header-btn-signup" style={{ 
               color: 'white',
               background: 'var(--brand-purple)',
               textDecoration: 'none',
@@ -74,7 +76,8 @@ export default function Home() {
               gap: '8px',
               fontSize: '0.95rem',
               fontWeight: 600,
-              boxShadow: '0 2px 8px rgba(156, 116, 244, 0.3)'
+              boxShadow: '0 2px 8px rgba(156, 116, 244, 0.3)',
+              whiteSpace: 'nowrap'
             }} 
             onMouseOver={(e) => {
               e.currentTarget.style.background = 'var(--brand-purple-light)';
@@ -87,7 +90,7 @@ export default function Home() {
               e.currentTarget.style.boxShadow = '0 2px 8px rgba(156, 116, 244, 0.3)';
             }}>
               {/* Sparkle Icon */}
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style={{ flexShrink: 0 }}>
                 <path d="M12 4 L13.2 10.8 L20 12 L13.2 13.2 L12 20 L10.8 13.2 L4 12 L10.8 10.8 Z"/>
               </svg>
               Sign Up

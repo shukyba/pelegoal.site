@@ -330,6 +330,32 @@ body {
   animation: sparkle-pulse 2s ease-in-out infinite;
 }
 
+/* Header Button Text - Sign In Hidden on Mobile */
+.header-signin-text {
+  display: inline;
+}
+
+@media (max-width: 640px) {
+  .header-signin-text {
+    display: none;
+  }
+  
+  .header-nav {
+    gap: 8px !important;
+  }
+  
+  .header-btn-signin {
+    padding: 10px !important;
+    min-width: 44px;
+    justify-content: center;
+  }
+  
+  .header-btn-signup {
+    padding: 10px 16px !important;
+    font-size: 0.875rem !important;
+  }
+}
+
 /* Mobile-first responsive styles */
 @media (min-width: 768px) {
   .container {
