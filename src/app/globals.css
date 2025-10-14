@@ -54,7 +54,8 @@
   --radius: 0.5rem;
 }
 
-/* Dark mode disabled - preserving light color scheme */
+/* Dark mode disabled for layout - preserving light color scheme */
+/* But individual elements can adapt for readability */
 /*
 @media (prefers-color-scheme: dark) {
   :root {
@@ -333,24 +334,7 @@ body {
   animation: sparkle-pulse 2s ease-in-out infinite;
 }
 
-/* Hero Heading - Better contrast in dark mode */
-.hero-heading {
-  background: linear-gradient(135deg, #7c3aed 0%, #9c74f4 50%, #d946ef 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-@media (prefers-color-scheme: dark) {
-  .hero-heading {
-    background: linear-gradient(135deg, #fdf4ff 0%, #ffffff 50%, #fef3ff 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    /* Fallback for better support */
-    color: #ffffff;
-  }
-}
+/* Note: Dark mode styling is now handled via JavaScript state in page.tsx */
 
 /* Header Button Text - Sign In Hidden on Mobile */
 .header-signin-text {

@@ -5,12 +5,25 @@ import { useEffect, useState } from 'react';
 
 export default function Home() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     // Check if UserId cookie exists
     const cookies = document.cookie.split(';');
     const hasUserId = cookies.some(cookie => cookie.trim().startsWith('UserId='));
     setIsLoggedIn(hasUserId);
+
+    // Check for dark mode
+    const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    setIsDarkMode(darkModeQuery.matches);
+
+    // Listen for changes
+    const handleDarkModeChange = (e: MediaQueryListEvent) => {
+      setIsDarkMode(e.matches);
+    };
+
+    darkModeQuery.addEventListener('change', handleDarkModeChange);
+    return () => darkModeQuery.removeEventListener('change', handleDarkModeChange);
   }, []);
 
   return (
@@ -159,11 +172,24 @@ export default function Home() {
             </svg>
           </div>
 
-          <h2 className="hero-heading" style={{
+          <h2 style={{
             fontSize: 'clamp(2rem, 6vw, 4rem)',
             marginBottom: '24px',
             fontWeight: 'bold',
-            lineHeight: '1.2'
+            lineHeight: '1.2',
+            ...(isDarkMode ? {
+              // Dark mode: Pure white with glow
+              color: '#ffffff',
+              background: 'none',
+              WebkitTextFillColor: '#ffffff',
+              textShadow: '0 0 40px rgba(255, 255, 255, 0.8), 0 0 80px rgba(255, 255, 255, 0.4), 0 0 120px rgba(255, 255, 255, 0.2)'
+            } : {
+              // Light mode: Purple gradient
+              background: 'linear-gradient(135deg, #7c3aed 0%, #9c74f4 50%, #d946ef 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text'
+            })
           }}>
             Expand Reach. Meet Goals.
           </h2>
@@ -172,8 +198,9 @@ export default function Home() {
             marginBottom: '30px',
             maxWidth: '900px',
             margin: '0 auto 30px',
-            color: '#64748b',
-            lineHeight: '1.6'
+            color: isDarkMode ? '#f1f5f9' : '#64748b',
+            lineHeight: '1.6',
+            textShadow: isDarkMode ? '0 0 20px rgba(255, 255, 255, 0.3)' : undefined
           }}>
             Scale your business outreach with AI-powered personalization and intelligent automation. 
             Reach more prospects, at the right moment, with tailored messages.
