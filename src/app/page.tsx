@@ -330,54 +330,117 @@ export default function Home() {
         margin: '0'
       }}/>
 
-      {/* Contact Section */}
-      <section id="contact" style={{
+      {/* CTA Section */}
+      <section id="cta" style={{
         background: 'linear-gradient(180deg, #0f172a 0%, #1e293b 100%)',
         color: 'white',
-        padding: 'clamp(40px, 10vw, 80px) 0'
+        padding: 'clamp(60px, 12vw, 100px) 0'
       }}>
         <div className="container" style={{ textAlign: 'center' }}>
-          <h2 style={{
-            fontSize: 'clamp(1.75rem, 5vw, 2.5rem)',
-            marginBottom: '20px'
+          {/* Sparkle Icon */}
+          <div className="sparkle" style={{ 
+            display: 'inline-block',
+            marginBottom: '24px'
           }}>
-            Get In Touch
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none">
+              <defs>
+                <linearGradient id="ctaSparkleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style={{ stopColor: '#c084fc' }} />
+                  <stop offset="100%" style={{ stopColor: '#e879f9' }} />
+                </linearGradient>
+              </defs>
+              <path d="M12 4 L13.2 10.8 L20 12 L13.2 13.2 L12 20 L10.8 13.2 L4 12 L10.8 10.8 Z" fill="url(#ctaSparkleGrad)"/>
+              <path d="M18 6 L18.5 8 L20.5 8.5 L18.5 9 L18 11 L17.5 9 L15.5 8.5 L17.5 8 Z" fill="url(#ctaSparkleGrad)"/>
+            </svg>
+          </div>
+
+          <h2 style={{
+            fontSize: 'clamp(2rem, 5vw, 3rem)',
+            marginBottom: '20px',
+            fontWeight: 'bold',
+            lineHeight: '1.2'
+          }}>
+            Ready to Transform Your Outreach?
           </h2>
           <p style={{ 
-            marginBottom: '30px', 
-            fontSize: '1.1rem',
-            color: 'rgba(255, 255, 255, 0.7)'
+            marginBottom: '36px', 
+            fontSize: 'clamp(1.1rem, 3vw, 1.3rem)',
+            color: 'rgba(255, 255, 255, 0.8)',
+            maxWidth: '700px',
+            margin: '0 auto 36px',
+            lineHeight: '1.6'
           }}>
-            Ready to dive into sports analysis? Contact us today!
+            Join thousands of businesses already scaling their reach with AI-powered personalization. 
+            Start your journey today—no credit card required.
           </p>
-          <a 
-            href="mailto:hello@pelegoal.site" 
-            suppressHydrationWarning
-            style={{
-              display: 'inline-block',
-              background: 'var(--brand-purple)',
-              color: 'white',
-              padding: '15px 40px',
-              borderRadius: 'var(--radius)',
-              textDecoration: 'none',
-              fontSize: '1.1rem',
-              fontWeight: 'bold',
-              transition: 'all 0.3s ease',
-              boxShadow: '0 4px 6px rgba(156, 116, 244, 0.3)'
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.background = 'var(--brand-purple-light)';
-              e.currentTarget.style.transform = 'translateY(-2px)';
-              e.currentTarget.style.boxShadow = '0 8px 16px rgba(156, 116, 244, 0.4)';
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.background = 'var(--brand-purple)';
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 4px 6px rgba(156, 116, 244, 0.3)';
-            }}
-          >
-            Email Us
-          </a>
+          
+          <div style={{
+            display: 'flex',
+            gap: '16px',
+            justifyContent: 'center',
+            flexWrap: 'wrap'
+          }}>
+            <a 
+              href={LINKS.auth.signUp}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '10px',
+                background: 'linear-gradient(135deg, #9c74f4 0%, #d946ef 100%)',
+                color: 'white',
+                padding: '18px 48px',
+                borderRadius: 'var(--radius)',
+                textDecoration: 'none',
+                fontSize: '1.15rem',
+                fontWeight: 'bold',
+                transition: 'all 0.3s ease',
+                boxShadow: '0 8px 24px rgba(156, 116, 244, 0.4)'
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.transform = 'translateY(-3px) scale(1.05)';
+                e.currentTarget.style.boxShadow = '0 12px 32px rgba(156, 116, 244, 0.5)';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                e.currentTarget.style.boxShadow = '0 8px 24px rgba(156, 116, 244, 0.4)';
+              }}
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 4 L13.2 10.8 L20 12 L13.2 13.2 L12 20 L10.8 13.2 L4 12 L10.8 10.8 Z"/>
+              </svg>
+              Start Free Trial
+            </a>
+
+            <a 
+              href={LINKS.auth.signIn}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '10px',
+                background: 'rgba(255, 255, 255, 0.1)',
+                color: 'white',
+                padding: '18px 48px',
+                borderRadius: 'var(--radius)',
+                textDecoration: 'none',
+                fontSize: '1.15rem',
+                fontWeight: 'bold',
+                transition: 'all 0.3s ease',
+                border: '2px solid rgba(255, 255, 255, 0.2)'
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
+                e.currentTarget.style.transform = 'translateY(-3px)';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)';
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                e.currentTarget.style.transform = 'translateY(0)';
+              }}
+            >
+              Sign In
+            </a>
+          </div>
         </div>
       </section>
 
