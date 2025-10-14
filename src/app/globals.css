@@ -106,6 +106,30 @@ body {
   animation: gradient-move 5s ease-in-out infinite;
 }
 
+/* Footer Gradient Animation */
+@keyframes footer-gradient-move {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.footer-animated-gradient {
+  background: linear-gradient(
+    135deg,
+    #1e1b4b,
+    #4c1d95,
+    #7c3aed,
+    #a855f7,
+    #c084fc,
+    #a855f7,
+    #7c3aed,
+    #4c1d95,
+    #1e1b4b
+  );
+  background-size: 400% 400%;
+  animation: footer-gradient-move 15s ease infinite;
+}
+
 /* Sparkle Icon */
 @keyframes sparkle-pulse {
   0%, 100% { opacity: 1; transform: scale(1); }

@@ -350,43 +350,40 @@ export default function Home() {
           }}>
             Ready to dive into sports analysis? Contact us today!
           </p>
-          <a href="mailto:hello@pelegoal.site" style={{
-            display: 'inline-block',
-            background: 'var(--brand-purple)',
-            color: 'white',
-            padding: '15px 40px',
-            borderRadius: 'var(--radius)',
-            textDecoration: 'none',
-            fontSize: '1.1rem',
-            fontWeight: 'bold',
-            transition: 'all 0.3s ease',
-            boxShadow: '0 4px 6px rgba(156, 116, 244, 0.3)'
-          }}
-          onMouseOver={(e) => {
-            e.currentTarget.style.background = 'var(--brand-purple-light)';
-            e.currentTarget.style.transform = 'translateY(-2px)';
-            e.currentTarget.style.boxShadow = '0 8px 16px rgba(156, 116, 244, 0.4)';
-          }}
-          onMouseOut={(e) => {
-            e.currentTarget.style.background = 'var(--brand-purple)';
-            e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = '0 4px 6px rgba(156, 116, 244, 0.3)';
-          }}>
+          <a 
+            href="mailto:hello@pelegoal.site" 
+            suppressHydrationWarning
+            style={{
+              display: 'inline-block',
+              background: 'var(--brand-purple)',
+              color: 'white',
+              padding: '15px 40px',
+              borderRadius: 'var(--radius)',
+              textDecoration: 'none',
+              fontSize: '1.1rem',
+              fontWeight: 'bold',
+              transition: 'all 0.3s ease',
+              boxShadow: '0 4px 6px rgba(156, 116, 244, 0.3)'
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.background = 'var(--brand-purple-light)';
+              e.currentTarget.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.boxShadow = '0 8px 16px rgba(156, 116, 244, 0.4)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.background = 'var(--brand-purple)';
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 4px 6px rgba(156, 116, 244, 0.3)';
+            }}
+          >
             Email Us
           </a>
         </div>
       </section>
 
-      {/* Dotted Divider */}
-      <div style={{
-        borderTop: '2px dotted rgba(156, 116, 244, 0.3)',
-        margin: '0'
-      }}/>
-
       {/* Footer */}
-      <footer style={{
-        background: '#1e293b',
-        color: 'rgba(255, 255, 255, 0.6)',
+      <footer className="footer-animated-gradient" style={{
+        color: 'rgba(255, 255, 255, 0.9)',
         textAlign: 'center',
         padding: '30px 0',
         fontSize: '0.9rem'
