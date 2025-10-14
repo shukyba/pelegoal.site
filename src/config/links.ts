@@ -8,5 +8,6 @@ export const LINKS = {
     signUp: 'https://iam.pelegoal.com/sign-up',
     signIn: 'https://iam.pelegoal.com/sign-in',
   },
+  app: 'https://app.pelegoal.com/',
 } as const;
 

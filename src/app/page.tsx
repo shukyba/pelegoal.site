@@ -1,8 +1,18 @@
 'use client';
 
 import { LINKS } from '@/config/links';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    // Check if UserId cookie exists
+    const cookies = document.cookie.split(';');
+    const hasUserId = cookies.some(cookie => cookie.trim().startsWith('UserId='));
+    setIsLoggedIn(hasUserId);
+  }, []);
+
   return (
     <main>
       {/* Header */}
@@ -30,37 +40,54 @@ export default function Home() {
             Pele.<span style={{ color: 'var(--brand-purple)' }}>Goal.</span>
           </h1>
           <nav className="header-nav" style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-            {/* Sign In Button */}
-            <a href={LINKS.auth.signIn} className="header-btn-signin" style={{ 
-              color: 'rgba(255, 255, 255, 0.9)', 
-              textDecoration: 'none',
-              transition: 'all 0.3s ease',
-              padding: '10px 20px',
-              borderRadius: '8px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              fontSize: '0.95rem',
-              fontWeight: 500,
-              border: '1px solid rgba(255, 255, 255, 0.2)',
-              whiteSpace: 'nowrap'
-            }} 
-            onMouseOver={(e) => {
-              e.currentTarget.style.color = 'white';
-              e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)';
-              e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)';
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.color = 'rgba(255, 255, 255, 0.9)';
-              e.currentTarget.style.background = 'transparent';
-              e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
-            }}>
-              {/* User Icon */}
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ flexShrink: 0 }}>
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" strokeLinecap="round" strokeLinejoin="round"/>
-                <circle cx="12" cy="7" r="4" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-              <span className="header-signin-text">Sign In</span>
+            {/* Sign In Button / App Link */}
+            <a 
+              href={isLoggedIn ? LINKS.app : LINKS.auth.signIn} 
+              className="header-btn-signin" 
+              style={{ 
+                color: 'rgba(255, 255, 255, 0.9)', 
+                textDecoration: 'none',
+                transition: 'all 0.3s ease',
+                padding: '10px 20px',
+                borderRadius: '8px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                fontSize: '0.95rem',
+                fontWeight: 500,
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                whiteSpace: 'nowrap'
+              }} 
+              onMouseOver={(e) => {
+                e.currentTarget.style.color = 'white';
+                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)';
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.color = 'rgba(255, 255, 255, 0.9)';
+                e.currentTarget.style.background = 'transparent';
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+              }}
+            >
+              {isLoggedIn ? (
+                <>
+                  {/* App Icon */}
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ flexShrink: 0 }}>
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="9" y1="3" x2="9" y2="21"/>
+                  </svg>
+                  <span className="header-signin-text">Go to App</span>
+                </>
+              ) : (
+                <>
+                  {/* User Icon */}
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ flexShrink: 0 }}>
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <circle cx="12" cy="7" r="4" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  <span className="header-signin-text">Sign In</span>
+                </>
+              )}
             </a>
 
             {/* Sign Up Button - Stands Out */}
@@ -433,7 +460,7 @@ export default function Home() {
               Start Free Trial
             </a>
 
-            <a 
+            {/* <a 
               href={LINKS.auth.signIn}
               style={{
                 display: 'inline-flex',
@@ -461,7 +488,7 @@ export default function Home() {
               }}
             >
               Sign In
-            </a>
+            </a> */}
           </div>
         </div>
       </section>
