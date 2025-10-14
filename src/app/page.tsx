@@ -154,6 +154,51 @@ export default function Home() {
         position: 'relative'
       }}>
         <div className="container">
+          {/* Dark Mode Testing Controls */}
+          <div style={{
+            position: 'fixed',
+            top: '80px',
+            right: '10px',
+            background: 'rgba(0, 0, 0, 0.9)',
+            padding: '12px',
+            borderRadius: '8px',
+            zIndex: 9999,
+            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)'
+          }}>
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '8px'
+            }}>
+              <div style={{
+                background: isDarkMode ? '#22c55e' : '#ef4444',
+                color: 'white',
+                padding: '6px 12px',
+                borderRadius: '4px',
+                fontSize: '12px',
+                fontWeight: 'bold',
+                textAlign: 'center'
+              }}>
+                {isDarkMode ? '🌙 DARK' : '☀️ LIGHT'}
+              </div>
+              <button
+                onClick={() => setIsDarkMode(!isDarkMode)}
+                style={{
+                  background: '#9c74f4',
+                  color: 'white',
+                  padding: '8px 16px',
+                  borderRadius: '6px',
+                  fontSize: '14px',
+                  fontWeight: 'bold',
+                  border: 'none',
+                  cursor: 'pointer'
+                }}
+              >
+                Toggle
+              </button>
+            </div>
+          </div>
+
           {/* Sparkle Icon with Spin + Pulse Animation */}
           <div className="icon-spin-pulse" style={{ 
             display: 'inline-block',
