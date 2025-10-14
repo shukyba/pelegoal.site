@@ -184,16 +184,16 @@ export default function Home() {
       }}/>
 
       {/* Features Section */}
-      <section id="about" style={{ 
-        padding: 'clamp(40px, 10vw, 80px) 0',
-        background: 'var(--background)'
+      <section id="about" className="features-animated-gradient" style={{ 
+        padding: 'clamp(60px, 12vw, 100px) 0'
       }}>
         <div className="container">
           <h2 style={{
             fontSize: 'clamp(1.75rem, 5vw, 2.5rem)',
             textAlign: 'center',
-            marginBottom: '40px',
-            color: 'var(--gray-600)'
+            marginBottom: '50px',
+            color: '#1e293b',
+            fontWeight: 'bold'
           }}>
             What We Offer
           </h2>
@@ -207,7 +207,7 @@ export default function Home() {
                 title: 'Smart Searches', 
                 desc: 'No more long manual searches. Let our technology find the perfect prospects for your goals effortlessly',
                 iconSvg: (
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ color: 'var(--brand-purple)' }}>
+                  <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ color: '#7c3aed' }}>
                     <circle cx="11" cy="11" r="8"/>
                     <path d="m21 21-4.35-4.35"/>
                     <path d="M11 8a3 3 0 0 0-3 3"/>
@@ -218,7 +218,7 @@ export default function Home() {
                 title: 'AI-Powered Messaging', 
                 desc: 'AI-driven customization that seamlessly adapts your messaging to match each prospect and context',
                 iconSvg: (
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ color: 'var(--brand-purple)' }}>
+                  <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ color: '#7c3aed' }}>
                     <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
                     <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
                     <line x1="12" x2="12" y1="19" y2="22"/>
@@ -230,7 +230,7 @@ export default function Home() {
                 title: 'Intelligent Forms', 
                 desc: 'Automated form filling that eliminates repetitive tasks and accelerates your outreach workflow',
                 iconSvg: (
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ color: 'var(--brand-purple)' }}>
+                  <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ color: '#7c3aed' }}>
                     <path d="M12 20h9"/>
                     <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
                   </svg>
@@ -238,39 +238,45 @@ export default function Home() {
               }
             ].map((feature, i) => (
               <div key={i} style={{
-                background: 'var(--card)',
-                padding: '30px',
+                background: 'rgba(255, 255, 255, 0.9)',
+                backdropFilter: 'blur(10px)',
+                padding: '35px',
                 borderRadius: 'var(--radius)',
-                border: '1px solid var(--border)',
+                border: '1px solid rgba(156, 116, 244, 0.2)',
                 transition: 'all 0.3s ease',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                boxShadow: '0 4px 6px rgba(124, 58, 237, 0.1)'
               }}
               onMouseOver={(e) => {
-                e.currentTarget.style.transform = 'translateY(-8px)';
-                e.currentTarget.style.boxShadow = '0 10px 30px rgba(156, 116, 244, 0.2)';
-                e.currentTarget.style.borderColor = 'var(--brand-purple)';
+                e.currentTarget.style.transform = 'translateY(-10px)';
+                e.currentTarget.style.boxShadow = '0 20px 40px rgba(124, 58, 237, 0.25)';
+                e.currentTarget.style.borderColor = 'rgba(156, 116, 244, 0.5)';
+                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.95)';
               }}
               onMouseOut={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
-                e.currentTarget.style.borderColor = 'var(--border)';
+                e.currentTarget.style.boxShadow = '0 4px 6px rgba(124, 58, 237, 0.1)';
+                e.currentTarget.style.borderColor = 'rgba(156, 116, 244, 0.2)';
+                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.9)';
               }}>
                 <div className="sparkle" style={{
                   display: 'inline-block',
-                  marginBottom: '15px'
+                  marginBottom: '20px'
                 }}>
                   {feature.iconSvg}
                 </div>
                 <h3 style={{ 
                   fontSize: '1.5rem', 
                   marginBottom: '15px',
-                  color: 'var(--foreground)'
+                  color: '#1e293b',
+                  fontWeight: 'bold'
                 }}>
                   {feature.title}
                 </h3>
                 <p style={{ 
-                  color: 'var(--muted-foreground)',
-                  lineHeight: '1.6'
+                  color: '#475569',
+                  lineHeight: '1.6',
+                  fontSize: '1rem'
                 }}>
                   {feature.desc}
                 </p>

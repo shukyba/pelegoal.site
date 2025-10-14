@@ -106,6 +106,34 @@ body {
   animation: gradient-move 5s ease-in-out infinite;
 }
 
+/* Features Section Gradient Animation */
+@keyframes features-gradient-move {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.features-animated-gradient {
+  background: linear-gradient(
+    135deg,
+    #ffffff,
+    #fefaff,
+    #faf5ff,
+    #f5f0ff,
+    #f3e8ff,
+    #f0e5ff,
+    #ede0ff,
+    #f0e5ff,
+    #f3e8ff,
+    #f5f0ff,
+    #faf5ff,
+    #fefaff,
+    #ffffff
+  );
+  background-size: 400% 400%;
+  animation: features-gradient-move 20s ease infinite;
+}
+
 /* Footer Gradient Animation */
 @keyframes footer-gradient-move {
   0% { background-position: 0% 50%; }
