@@ -187,6 +187,16 @@ export default function Home() {
       <section id="about" className="features-animated-gradient" style={{ 
         padding: 'clamp(60px, 12vw, 100px) 0'
       }}>
+        {/* Floating Bubbles */}
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        
         <div className="container">
           <h2 style={{
             fontSize: 'clamp(1.75rem, 5vw, 2.5rem)',
