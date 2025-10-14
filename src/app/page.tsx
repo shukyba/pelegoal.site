@@ -27,47 +27,82 @@ export default function Home() {
           }}>
             Pele<span style={{ color: 'var(--brand-purple)' }}>Goal</span>
           </h1>
-          <nav style={{ display: 'flex', gap: '20px' }}>
-            <a href="#about" style={{ 
+          <nav style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+            {/* Sign In Button */}
+            <a href="/signin" style={{ 
               color: 'rgba(255, 255, 255, 0.9)', 
               textDecoration: 'none',
               transition: 'all 0.3s ease',
-              padding: '8px 12px',
-              borderRadius: '6px'
+              padding: '10px 20px',
+              borderRadius: '8px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              fontSize: '0.95rem',
+              fontWeight: 500,
+              border: '1px solid rgba(255, 255, 255, 0.2)'
             }} 
             onMouseOver={(e) => {
-              e.currentTarget.style.color = 'var(--brand-purple-light)';
-              e.currentTarget.style.background = 'rgba(156, 116, 244, 0.15)';
+              e.currentTarget.style.color = 'white';
+              e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)';
+              e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)';
             }}
             onMouseOut={(e) => {
               e.currentTarget.style.color = 'rgba(255, 255, 255, 0.9)';
               e.currentTarget.style.background = 'transparent';
-            }}>About</a>
-            <a href="#contact" style={{ 
-              color: 'rgba(255, 255, 255, 0.9)', 
+              e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+            }}>
+              {/* User Icon */}
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" strokeLinecap="round" strokeLinejoin="round"/>
+                <circle cx="12" cy="7" r="4" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              Sign In
+            </a>
+
+            {/* Sign Up Button - Stands Out */}
+            <a href="/signup" style={{ 
+              color: 'white',
+              background: 'var(--brand-purple)',
               textDecoration: 'none',
               transition: 'all 0.3s ease',
-              padding: '8px 12px',
-              borderRadius: '6px'
-            }}
+              padding: '10px 24px',
+              borderRadius: '8px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              fontSize: '0.95rem',
+              fontWeight: 600,
+              boxShadow: '0 2px 8px rgba(156, 116, 244, 0.3)'
+            }} 
             onMouseOver={(e) => {
-              e.currentTarget.style.color = 'var(--brand-purple-light)';
-              e.currentTarget.style.background = 'rgba(156, 116, 244, 0.15)';
+              e.currentTarget.style.background = 'var(--brand-purple-light)';
+              e.currentTarget.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.boxShadow = '0 4px 12px rgba(156, 116, 244, 0.4)';
             }}
             onMouseOut={(e) => {
-              e.currentTarget.style.color = 'rgba(255, 255, 255, 0.9)';
-              e.currentTarget.style.background = 'transparent';
-            }}>Contact</a>
+              e.currentTarget.style.background = 'var(--brand-purple)';
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 2px 8px rgba(156, 116, 244, 0.3)';
+            }}>
+              {/* Sparkle Icon */}
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 4 L13.2 10.8 L20 12 L13.2 13.2 L12 20 L10.8 13.2 L4 12 L10.8 10.8 Z"/>
+              </svg>
+              Sign Up
+            </a>
           </nav>
         </div>
       </header>
 
-      {/* Hero Section with Animated Gradient */}
-      <section className="animated-gradient" style={{
-        color: 'white',
+      {/* Hero Section with Contemporary Gradient */}
+      <section style={{
+        background: 'linear-gradient(135deg, #f8f9ff 0%, #ffffff 25%, #faf8ff 50%, #f5f3ff 75%, #ffffff 100%)',
+        color: '#1e293b',
         padding: 'clamp(80px, 15vw, 140px) 0',
         textAlign: 'center',
-        position: 'relative'
+        position: 'relative',
+        borderBottom: '1px solid rgba(156, 116, 244, 0.1)'
       }}>
         <div className="container">
           {/* Sparkle Icon */}
@@ -76,9 +111,15 @@ export default function Home() {
             marginBottom: '20px'
           }}>
             <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
-              <path d="M12 4 L13.2 10.8 L20 12 L13.2 13.2 L12 20 L10.8 13.2 L4 12 L10.8 10.8 Z" fill="white"/>
-              <path d="M18 6 L18.5 8 L20.5 8.5 L18.5 9 L18 11 L17.5 9 L15.5 8.5 L17.5 8 Z" fill="white"/>
-              <path d="M6 18 L6.5 20 L8.5 20.5 L6.5 21 L6 23 L5.5 21 L3.5 20.5 L5.5 20 Z" fill="white"/>
+              <defs>
+                <linearGradient id="sparkleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style={{ stopColor: '#9c74f4' }} />
+                  <stop offset="100%" style={{ stopColor: '#d946ef' }} />
+                </linearGradient>
+              </defs>
+              <path d="M12 4 L13.2 10.8 L20 12 L13.2 13.2 L12 20 L10.8 13.2 L4 12 L10.8 10.8 Z" fill="url(#sparkleGrad)"/>
+              <path d="M18 6 L18.5 8 L20.5 8.5 L18.5 9 L18 11 L17.5 9 L15.5 8.5 L17.5 8 Z" fill="url(#sparkleGrad)"/>
+              <path d="M6 18 L6.5 20 L8.5 20.5 L6.5 21 L6 23 L5.5 21 L3.5 20.5 L5.5 20 Z" fill="url(#sparkleGrad)"/>
             </svg>
           </div>
 
@@ -86,7 +127,11 @@ export default function Home() {
             fontSize: 'clamp(2rem, 6vw, 4rem)',
             marginBottom: '24px',
             fontWeight: 'bold',
-            lineHeight: '1.2'
+            lineHeight: '1.2',
+            background: 'linear-gradient(135deg, #7c3aed 0%, #9c74f4 50%, #d946ef 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text'
           }}>
             Expand Reach. Meet Goals.
           </h2>
@@ -95,7 +140,7 @@ export default function Home() {
             marginBottom: '30px',
             maxWidth: '900px',
             margin: '0 auto 30px',
-            opacity: 0.95,
+            color: '#64748b',
             lineHeight: '1.6'
           }}>
             Transform your marketing strategy with AI-powered insights and data-driven campaigns. 
@@ -103,23 +148,23 @@ export default function Home() {
           </p>
           <a href="#contact" style={{
             display: 'inline-block',
-            background: 'white',
-            color: 'var(--brand-purple)',
-            padding: '15px 40px',
+            background: 'linear-gradient(135deg, #9c74f4 0%, #d946ef 100%)',
+            color: 'white',
+            padding: '16px 48px',
             borderRadius: 'var(--radius)',
             textDecoration: 'none',
             fontSize: '1.1rem',
             fontWeight: 'bold',
             transition: 'all 0.3s ease',
-            boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+            boxShadow: '0 4px 16px rgba(156, 116, 244, 0.3)'
           }}
           onMouseOver={(e) => {
             e.currentTarget.style.transform = 'translateY(-2px) scale(1.05)';
-            e.currentTarget.style.boxShadow = '0 10px 20px rgba(0,0,0,0.2)';
+            e.currentTarget.style.boxShadow = '0 8px 24px rgba(156, 116, 244, 0.4)';
           }}
           onMouseOut={(e) => {
             e.currentTarget.style.transform = 'translateY(0) scale(1)';
-            e.currentTarget.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+            e.currentTarget.style.boxShadow = '0 4px 16px rgba(156, 116, 244, 0.3)';
           }}>
             Get Started
           </a>
