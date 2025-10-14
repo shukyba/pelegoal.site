@@ -165,7 +165,7 @@ export default function Home() {
             fontWeight: 'bold',
             lineHeight: '1.2'
           }}>
-            Expand Reach. Meet Goals.
+            Expand Reach. Meet Goals..
           </h2>
           <p style={{
             fontSize: 'clamp(1.1rem, 3vw, 1.5rem)',
