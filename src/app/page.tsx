@@ -1,5 +1,7 @@
 'use client';
 
+import { LINKS } from '@/config/links';
+
 export default function Home() {
   return (
     <main>
@@ -28,7 +30,7 @@ export default function Home() {
           </h1>
           <nav style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
             {/* Sign In Button */}
-            <a href="/signin" style={{ 
+            <a href={LINKS.auth.signIn} style={{ 
               color: 'rgba(255, 255, 255, 0.9)', 
               textDecoration: 'none',
               transition: 'all 0.3s ease',
@@ -60,7 +62,7 @@ export default function Home() {
             </a>
 
             {/* Sign Up Button - Stands Out */}
-            <a href="/signup" style={{ 
+            <a href={LINKS.auth.signUp} style={{ 
               color: 'white',
               background: 'var(--brand-purple)',
               textDecoration: 'none',
@@ -202,22 +204,37 @@ export default function Home() {
           }}>
             {[
               { 
-                title: 'Expert Analysis', 
-                desc: 'In-depth sports analysis from industry professionals',
-                icon: '📊',
-                color: 'var(--info)'
+                title: 'Smart Searches', 
+                desc: 'No more long manual searches. Let our technology find the perfect prospects for your goals effortlessly',
+                iconSvg: (
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ color: 'var(--brand-purple)' }}>
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.35-4.35"/>
+                    <path d="M11 8a3 3 0 0 0-3 3"/>
+                  </svg>
+                )
               },
               { 
-                title: 'Latest News', 
-                desc: 'Stay updated with breaking sports news and updates',
-                icon: '⚡',
-                color: 'var(--success)'
+                title: 'AI-Powered Messaging', 
+                desc: 'AI-driven customization that seamlessly adapts your messaging to match each prospect and context',
+                iconSvg: (
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ color: 'var(--brand-purple)' }}>
+                    <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                    <line x1="12" x2="12" y1="19" y2="22"/>
+                    <path d="M8 22h8"/>
+                  </svg>
+                )
               },
               { 
-                title: 'Comprehensive Guides', 
-                desc: 'Detailed guides to help you understand the game',
-                icon: '📚',
-                color: 'var(--warning)'
+                title: 'Intelligent Forms', 
+                desc: 'Automated form filling that eliminates repetitive tasks and accelerates your outreach workflow',
+                iconSvg: (
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ color: 'var(--brand-purple)' }}>
+                    <path d="M12 20h9"/>
+                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                  </svg>
+                )
               }
             ].map((feature, i) => (
               <div key={i} style={{
@@ -238,11 +255,11 @@ export default function Home() {
                 e.currentTarget.style.boxShadow = 'none';
                 e.currentTarget.style.borderColor = 'var(--border)';
               }}>
-                <div style={{
-                  fontSize: '2.5rem',
+                <div className="sparkle" style={{
+                  display: 'inline-block',
                   marginBottom: '15px'
                 }}>
-                  {feature.icon}
+                  {feature.iconSvg}
                 </div>
                 <h3 style={{ 
                   fontSize: '1.5rem', 
@@ -283,8 +300,8 @@ export default function Home() {
           }}>
             {[
               { number: '10K+', label: 'Active Users' },
-              { number: '500+', label: 'Articles Published' },
-              { number: '50+', label: 'Expert Contributors' }
+              { number: '500K', label: 'Campaigns' },
+              { number: '50+', label: 'Countries' }
             ].map((stat, i) => (
               <div key={i}>
                 <div style={{
@@ -375,7 +392,7 @@ export default function Home() {
         fontSize: '0.9rem'
       }}>
         <div className="container">
-          <p>&copy; 2024 PeleGoal. All rights reserved.</p>
+          <p>&copy; 2025 PeleGoal. All rights reserved.</p>
         </div>
       </footer>
     </main>
