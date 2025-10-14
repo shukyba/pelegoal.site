@@ -333,6 +333,23 @@ body {
   animation: sparkle-pulse 2s ease-in-out infinite;
 }
 
+/* Hero Heading - Better contrast in dark mode */
+.hero-heading {
+  background: linear-gradient(135deg, #7c3aed 0%, #9c74f4 50%, #d946ef 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (prefers-color-scheme: dark) {
+  .hero-heading {
+    background: linear-gradient(135deg, #e9d5ff 0%, #f5f3ff 50%, #fae8ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
 /* Header Button Text - Sign In Hidden on Mobile */
 .header-signin-text {
   display: inline;

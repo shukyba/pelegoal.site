@@ -159,15 +159,11 @@ export default function Home() {
             </svg>
           </div>
 
-          <h2 style={{
+          <h2 className="hero-heading" style={{
             fontSize: 'clamp(2rem, 6vw, 4rem)',
             marginBottom: '24px',
             fontWeight: 'bold',
-            lineHeight: '1.2',
-            background: 'linear-gradient(135deg, #7c3aed 0%, #9c74f4 50%, #d946ef 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text'
+            lineHeight: '1.2'
           }}>
             Expand Reach. Meet Goals.
           </h2>
