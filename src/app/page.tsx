@@ -111,8 +111,8 @@ export default function Home() {
         position: 'relative'
       }}>
         <div className="container">
-          {/* Sparkle Icon */}
-          <div className="sparkle" style={{ 
+          {/* Sparkle Icon with Spin + Pulse Animation */}
+          <div className="icon-spin-pulse" style={{ 
             display: 'inline-block',
             marginBottom: '20px'
           }}>
@@ -289,13 +289,15 @@ export default function Home() {
       {/* Dotted Divider */}
       <div style={{
         borderTop: '2px dotted rgba(156, 116, 244, 0.3)',
-        margin: '0'
+        margin: '0',
+        display: 'none'
       }}/>
 
       {/* Stats Section */}
       <section style={{
         padding: 'clamp(40px, 10vw, 60px) 0',
-        background: 'var(--muted)'
+        background: 'var(--muted)',
+        display: 'none'
       }}>
         <div className="container">
           <div style={{
@@ -333,7 +335,8 @@ export default function Home() {
       {/* Dotted Divider */}
       <div style={{
         borderTop: '2px dotted rgba(156, 116, 244, 0.3)',
-        margin: '0'
+        margin: '0',
+        display: 'none'
       }}/>
 
       {/* CTA Section */}
