@@ -13,8 +13,7 @@ export default function Home() {
         top: 0,
         zIndex: 100,
         boxShadow: '0 4px 6px -1px rgba(156, 116, 244, 0.1), 0 2px 4px -2px rgba(156, 116, 244, 0.05)',
-        transition: 'all 0.3s ease',
-        borderBottom: '1px solid rgba(156, 116, 244, 0.1)'
+        transition: 'all 0.3s ease'
       }}>
         <div className="container" style={{
           display: 'flex',
@@ -25,7 +24,7 @@ export default function Home() {
             fontSize: 'clamp(1.5rem, 4vw, 2rem)',
             fontWeight: 700
           }}>
-            Pele<span style={{ color: 'var(--brand-purple)' }}>Goal</span>
+            Pele.<span style={{ color: 'var(--brand-purple)' }}>Goal.</span>
           </h1>
           <nav style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
             {/* Sign In Button */}
@@ -95,14 +94,19 @@ export default function Home() {
         </div>
       </header>
 
+      {/* Dotted Divider */}
+      <div style={{
+        borderTop: '2px dotted rgba(156, 116, 244, 0.3)',
+        margin: '0'
+      }}/>
+
       {/* Hero Section with Contemporary Gradient */}
       <section style={{
         background: 'linear-gradient(135deg, #f8f9ff 0%, #ffffff 25%, #faf8ff 50%, #f5f3ff 75%, #ffffff 100%)',
         color: '#1e293b',
-        padding: 'clamp(80px, 15vw, 140px) 0',
+        padding: 'clamp(60px, 10vw, 100px) 0',
         textAlign: 'center',
-        position: 'relative',
-        borderBottom: '1px solid rgba(156, 116, 244, 0.1)'
+        position: 'relative'
       }}>
         <div className="container">
           {/* Sparkle Icon */}
@@ -170,6 +174,12 @@ export default function Home() {
           </a>
         </div>
       </section>
+
+      {/* Dotted Divider */}
+      <div style={{
+        borderTop: '2px dotted rgba(156, 116, 244, 0.3)',
+        margin: '0'
+      }}/>
 
       {/* Features Section */}
       <section id="about" style={{ 
@@ -253,6 +263,12 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Dotted Divider */}
+      <div style={{
+        borderTop: '2px dotted rgba(156, 116, 244, 0.3)',
+        margin: '0'
+      }}/>
+
       {/* Stats Section */}
       <section style={{
         padding: 'clamp(40px, 10vw, 60px) 0',
@@ -290,6 +306,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Dotted Divider */}
+      <div style={{
+        borderTop: '2px dotted rgba(156, 116, 244, 0.3)',
+        margin: '0'
+      }}/>
 
       {/* Contact Section */}
       <section id="contact" style={{
@@ -338,14 +360,19 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Dotted Divider */}
+      <div style={{
+        borderTop: '2px dotted rgba(156, 116, 244, 0.3)',
+        margin: '0'
+      }}/>
+
       {/* Footer */}
       <footer style={{
         background: '#1e293b',
         color: 'rgba(255, 255, 255, 0.6)',
         textAlign: 'center',
         padding: '30px 0',
-        fontSize: '0.9rem',
-        borderTop: '1px solid rgba(156, 116, 244, 0.2)'
+        fontSize: '0.9rem'
       }}>
         <div className="container">
           <p>&copy; 2024 PeleGoal. All rights reserved.</p>
