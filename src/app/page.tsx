@@ -5,116 +5,13 @@ import { useEffect, useState } from 'react';
 
 export default function Home() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const [systemDarkMode, setSystemDarkMode] = useState<boolean | null>(null);
 
   useEffect(() => {
     // Check if UserId cookie exists
     const cookies = document.cookie.split(';');
     const hasUserId = cookies.some(cookie => cookie.trim().startsWith('UserId='));
     setIsLoggedIn(hasUserId);
-
-    // Detect if we're on mobile
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
-    
-    // Check system preference
-    const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    const systemPrefersDark = darkModeQuery.matches;
-    setSystemDarkMode(systemPrefersDark);
-    
-    console.log('Is Mobile:', isMobile);
-    console.log('System prefers dark mode:', systemPrefersDark);
-    console.log('Media query support:', darkModeQuery.media);
-
-    // Check for saved preference
-    const savedPreference = localStorage.getItem('darkMode');
-    
-    if (savedPreference !== null) {
-      // Use saved preference
-      const prefersDark = savedPreference === 'true';
-      console.log('Using saved preference:', prefersDark);
-      setIsDarkMode(prefersDark);
-      
-      // If saved preference conflicts with system, log it
-      if (prefersDark !== systemPrefersDark && darkModeQuery.media) {
-        console.log('⚠️ Saved preference differs from system preference');
-      }
-    } else {
-      // No saved preference - use intelligent defaults
-      let shouldUseDark: boolean;
-      
-      if (systemPrefersDark) {
-        // System explicitly says dark mode
-        shouldUseDark = true;
-        console.log('✓ System prefers dark mode');
-      } else if (!darkModeQuery.media) {
-        // Media query not supported - default to dark
-        shouldUseDark = true;
-        console.log('⚠️ Dark mode detection not supported - defaulting to dark');
-      } else if (isMobile) {
-        // On mobile with no clear preference - default to dark (most common)
-        shouldUseDark = true;
-        console.log('📱 Mobile device detected - defaulting to dark mode');
-      } else {
-        // Desktop with light mode preference
-        shouldUseDark = false;
-        console.log('💻 Desktop light mode detected');
-      }
-      
-      setIsDarkMode(shouldUseDark);
-      console.log('Final decision - using dark mode:', shouldUseDark);
-    }
-
-    // Listen for system preference changes
-    const handleDarkModeChange = (e: MediaQueryListEvent) => {
-      console.log('System dark mode changed:', e.matches);
-      setSystemDarkMode(e.matches);
-      // Only auto-update if user hasn't manually set a preference
-      if (localStorage.getItem('darkMode') === null) {
-        setIsDarkMode(e.matches);
-      }
-    };
-
-    darkModeQuery.addEventListener('change', handleDarkModeChange);
-    return () => darkModeQuery.removeEventListener('change', handleDarkModeChange);
   }, []);
-
-  // Save preference when manually toggled
-  const toggleDarkMode = () => {
-    const newValue = !isDarkMode;
-    setIsDarkMode(newValue);
-    localStorage.setItem('darkMode', String(newValue));
-    console.log('Saved dark mode preference:', newValue);
-  };
-
-  // Reset to system preference
-  const resetToSystem = () => {
-    localStorage.removeItem('darkMode');
-    
-    // Detect mobile
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
-    const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    const systemPrefersDark = darkModeQuery.matches;
-    
-    // Use same intelligent logic as initial load
-    let shouldUseDark: boolean;
-    if (systemPrefersDark) {
-      shouldUseDark = true;
-      console.log('Reset: System prefers dark mode');
-    } else if (!darkModeQuery.media) {
-      shouldUseDark = true;
-      console.log('Reset: Dark mode detection not supported - defaulting to dark');
-    } else if (isMobile) {
-      shouldUseDark = true;
-      console.log('Reset: Mobile device - defaulting to dark mode');
-    } else {
-      shouldUseDark = false;
-      console.log('Reset: Desktop light mode');
-    }
-    
-    setIsDarkMode(shouldUseDark);
-    console.log('Reset complete - using dark mode:', shouldUseDark);
-  };
 
   return (
     <main>
@@ -244,85 +141,6 @@ export default function Home() {
         position: 'relative'
       }}>
         <div className="container">
-          {/* Dark Mode Testing Controls */}
-          <div style={{
-            position: 'fixed',
-            top: '80px',
-            right: '10px',
-            background: 'rgba(0, 0, 0, 0.9)',
-            padding: '12px',
-            borderRadius: '8px',
-            zIndex: 9999,
-            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
-            minWidth: '140px'
-          }}>
-            <div style={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '8px'
-            }}>
-              {/* System Detection */}
-              <div style={{
-                background: '#475569',
-                color: 'white',
-                padding: '4px 8px',
-                borderRadius: '4px',
-                fontSize: '10px',
-                fontWeight: 'bold',
-                textAlign: 'center'
-              }}>
-                System: {systemDarkMode === null ? '?' : systemDarkMode ? '🌙' : '☀️'}
-              </div>
-              
-              {/* Current State */}
-              <div style={{
-                background: isDarkMode ? '#22c55e' : '#ef4444',
-                color: 'white',
-                padding: '6px 12px',
-                borderRadius: '4px',
-                fontSize: '12px',
-                fontWeight: 'bold',
-                textAlign: 'center'
-              }}>
-                {isDarkMode ? '🌙 DARK' : '☀️ LIGHT'}
-              </div>
-              
-              {/* Toggle Button */}
-              <button
-                onClick={toggleDarkMode}
-                style={{
-                  background: '#9c74f4',
-                  color: 'white',
-                  padding: '8px 16px',
-                  borderRadius: '6px',
-                  fontSize: '14px',
-                  fontWeight: 'bold',
-                  border: 'none',
-                  cursor: 'pointer'
-                }}
-              >
-                Toggle
-              </button>
-              
-              {/* Reset Button */}
-              <button
-                onClick={resetToSystem}
-                style={{
-                  background: '#ef4444',
-                  color: 'white',
-                  padding: '8px 16px',
-                  borderRadius: '6px',
-                  fontSize: '14px',
-                  fontWeight: 'bold',
-                  border: 'none',
-                  cursor: 'pointer'
-                }}
-              >
-                Reset
-              </button>
-            </div>
-          </div>
-
           {/* Sparkle Icon with Spin + Pulse Animation */}
           <div className="icon-spin-pulse" style={{ 
             display: 'inline-block',
@@ -346,19 +164,10 @@ export default function Home() {
             marginBottom: '24px',
             fontWeight: 'bold',
             lineHeight: '1.2',
-            ...(isDarkMode ? {
-              // Dark mode: Pure white with glow
-              color: '#ffffff',
-              background: 'none',
-              WebkitTextFillColor: '#ffffff',
-              textShadow: '0 0 40px rgba(255, 255, 255, 0.8), 0 0 80px rgba(255, 255, 255, 0.4), 0 0 120px rgba(255, 255, 255, 0.2)'
-            } : {
-              // Light mode: Purple gradient
-              background: 'linear-gradient(135deg, #7c3aed 0%, #9c74f4 50%, #d946ef 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            })
+            background: 'linear-gradient(135deg, #7c3aed 0%, #9c74f4 50%, #d946ef 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text'
           }}>
             Expand Reach. Meet Goals.
           </h2>
@@ -367,9 +176,8 @@ export default function Home() {
             marginBottom: '30px',
             maxWidth: '900px',
             margin: '0 auto 30px',
-            color: isDarkMode ? '#f1f5f9' : '#64748b',
-            lineHeight: '1.6',
-            textShadow: isDarkMode ? '0 0 20px rgba(255, 255, 255, 0.3)' : undefined
+            color: '#64748b',
+            lineHeight: '1.6'
           }}>
             Scale your business outreach with AI-powered personalization and intelligent automation. 
             Reach more prospects, at the right moment, with tailored messages.
