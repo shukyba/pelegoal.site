@@ -235,7 +235,7 @@ export default function Home() {
             color: '#1e293b',
             fontWeight: 'bold'
           }}>
-            What We Offer
+            What We Offer?
           </h2>
           <div style={{
             display: 'grid',
