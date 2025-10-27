@@ -182,7 +182,7 @@ export default function Home() {
             Scale your business outreach with AI-powered personalization and intelligent automation. 
             Reach more prospects, at the right moment, with tailored messages.
           </p>
-          <a href="#contact" style={{
+          <a href={LINKS.auth.signUp} style={{
             display: 'inline-block',
             background: 'linear-gradient(135deg, #9c74f4 0%, #d946ef 100%)',
             color: 'white',
@@ -457,7 +457,7 @@ export default function Home() {
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 4 L13.2 10.8 L20 12 L13.2 13.2 L12 20 L10.8 13.2 L4 12 L10.8 10.8 Z"/>
               </svg>
-              Start Free Trial
+              SIGN UP FOR FREE
             </a>
 
             {/* <a 
