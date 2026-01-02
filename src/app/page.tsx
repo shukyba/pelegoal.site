@@ -256,22 +256,57 @@ export default function Home() {
             overflow: 'hidden',
             boxShadow: '0 20px 60px rgba(156, 116, 244, 0.3)'
           }}>
-            <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube-nocookie.com/embed/Vmnlc5REeX8?rel=0"
-              title="PeleGoal Tutorial"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
+            <a
+              href="https://www.youtube.com/watch?v=Vmnlc5REeX8"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Watch PeleGoal Tutorial on YouTube"
               style={{
                 position: 'absolute',
                 top: 0,
                 left: 0,
                 width: '100%',
-                height: '100%'
+                height: '100%',
+                display: 'block',
+                textDecoration: 'none'
               }}
-            />
+            >
+              <img
+                src="https://img.youtube.com/vi/Vmnlc5REeX8/maxresdefault.jpg"
+                alt="PeleGoal Tutorial Video"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover'
+                }}
+              />
+              {/* Play button overlay */}
+              <div style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: 'clamp(60px, 10vw, 80px)',
+                height: 'clamp(60px, 10vw, 80px)',
+                backgroundColor: 'rgba(255, 0, 0, 0.9)',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.4)',
+                transition: 'transform 0.2s ease, background-color 0.2s ease'
+              }}>
+                <svg
+                  width="40%"
+                  height="40%"
+                  viewBox="0 0 24 24"
+                  fill="white"
+                  style={{ marginLeft: '4px' }}
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </a>
           </div>
         </div>
       </section>
