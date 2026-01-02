@@ -259,7 +259,7 @@ export default function Home() {
             <iframe
               width="100%"
               height="100%"
-              src="https://www.youtube.com/embed/Vmnlc5REeX8"
+              src="https://www.youtube-nocookie.com/embed/Vmnlc5REeX8?rel=0"
               title="PeleGoal Tutorial"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
