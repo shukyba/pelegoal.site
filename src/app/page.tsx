@@ -232,6 +232,50 @@ export default function Home() {
         display: 'none'
       }}/>
 
+      {/* Video Tutorial Section */}
+      <section style={{
+        padding: 'clamp(60px, 12vw, 100px) 0',
+        background: 'linear-gradient(135deg, #ffffff 0%, #f8f9ff 50%, #ffffff 100%)'
+      }}>
+        <div className="container" style={{ textAlign: 'center' }}>
+          <h2 style={{
+            fontSize: 'clamp(1.75rem, 5vw, 2.5rem)',
+            marginBottom: '40px',
+            color: '#1e293b',
+            fontWeight: 'bold'
+          }}>
+            See It In Action
+          </h2>
+          <div style={{
+            position: 'relative',
+            paddingBottom: '56.25%', // 16:9 aspect ratio
+            height: 0,
+            maxWidth: '900px',
+            margin: '0 auto',
+            borderRadius: 'var(--radius)',
+            overflow: 'hidden',
+            boxShadow: '0 20px 60px rgba(156, 116, 244, 0.3)'
+          }}>
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/Vmnlc5REeX8"
+              title="PeleGoal Tutorial"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%'
+              }}
+            />
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section id="cta" style={{
         background: 'linear-gradient(180deg, #0f172a 0%, #1e293b 100%)',
