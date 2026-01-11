@@ -101,6 +101,25 @@ export default function TemplateTrapArticle() {
               Then I waited.
             </p>
 
+            {/* Image */}
+            <div style={{
+              margin: '48px auto',
+              maxWidth: '500px',
+              borderRadius: 'var(--radius)',
+              overflow: 'hidden',
+              boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)'
+            }}>
+              <img 
+                src="/blog/the-template.png" 
+                alt="The Template That Killed My Response Rate - Templates vs AI Personalization"
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  display: 'block'
+                }}
+              />
+            </div>
+
             {/* The Fall */}
             <h2 style={{
               fontSize: '1.5rem',

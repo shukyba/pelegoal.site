@@ -1,0 +1,304 @@
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'The Invisible Wall: Why Finding the Right People to Pitch Feels Impossible | PeleGoal Blog',
+  description: 'Hours of searching, pages of irrelevant results, a spreadsheet with 12 names. Learn how to break through the prospecting wall with automated search.',
+  openGraph: {
+    title: 'The Invisible Wall: Why Finding the Right People to Pitch Feels Impossible',
+    description: 'Hours of searching, pages of irrelevant results, a spreadsheet with 12 names. Learn how to break through.',
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'The Invisible Wall: Why Finding the Right People to Pitch Feels Impossible',
+    description: 'Hours of searching, pages of irrelevant results. Learn how to break through.',
+  }
+};
+
+export default function InvisibleWallArticle() {
+  return (
+    <main style={{
+      background: 'linear-gradient(135deg, #f5f0ff 0%, #faf5ff 50%, #fefaff 100%)',
+      minHeight: '100vh',
+      display: 'flex',
+      flexDirection: 'column'
+    }}>
+      <Header />
+      <div style={{
+        flex: 1,
+        padding: '40px 0'
+      }}>
+        <article className="container" style={{
+          maxWidth: '800px',
+          margin: '0 auto',
+          padding: '40px 20px',
+          background: 'white',
+          borderRadius: 'var(--radius)',
+          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+        }}>
+          <Link 
+            href="/blog" 
+            style={{
+              display: 'inline-block',
+              marginBottom: '30px',
+              color: 'var(--brand-purple)',
+              textDecoration: 'none',
+              fontWeight: 500,
+              transition: 'color 0.3s ease'
+            }}
+          >
+            ← Back to Blog
+          </Link>
+
+          {/* Article Header */}
+          <h1 style={{
+            fontSize: 'clamp(2rem, 5vw, 2.75rem)',
+            fontWeight: 700,
+            marginBottom: '20px',
+            color: 'var(--foreground)',
+            lineHeight: 1.2
+          }}>
+            The Invisible Wall: Why Finding the Right People to Pitch Feels Impossible
+          </h1>
+
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '16px',
+            marginBottom: '40px',
+            color: 'var(--muted-foreground)',
+            fontSize: '0.95rem'
+          }}>
+            <span>January 2026</span>
+            <span>•</span>
+            <span>7 min read</span>
+          </div>
+
+          {/* Article Content */}
+          <div style={{
+            lineHeight: '1.9',
+            color: 'var(--foreground)',
+            fontSize: '1.1rem'
+          }}>
+            
+            {/* Opening */}
+            <p style={{ marginBottom: '24px' }}>
+              They're out there. I know they are.
+            </p>
+
+            <p style={{ marginBottom: '24px' }}>
+              Somewhere in the vast expanse of the internet, there are people who need exactly what I'm offering. Businesses that would benefit from my service. Decision-makers who would say "yes" if they only knew I existed. My perfect clients are out there, waiting to be found.
+            </p>
+
+            <p style={{ marginBottom: '24px' }}>
+              So why does finding them feel like searching for a specific grain of sand on an endless beach?
+            </p>
+
+            <p style={{ marginBottom: '24px', fontWeight: 600, fontStyle: 'italic', color: '#7c3aed' }}>
+              This is the invisible wall. And I spent years running headfirst into it.
+            </p>
+
+            {/* Image */}
+            <div style={{
+              margin: '48px auto',
+              maxWidth: '500px',
+              borderRadius: 'var(--radius)',
+              overflow: 'hidden',
+              boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)'
+            }}>
+              <img 
+                src="/blog/invisble-wall.png" 
+                alt="The Invisible Wall - Finding the right people to pitch"
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  display: 'block'
+                }}
+              />
+            </div>
+
+            {/* The Search */}
+            <h2 style={{
+              fontSize: '1.5rem',
+              fontWeight: 600,
+              marginTop: '48px',
+              marginBottom: '20px',
+              color: 'var(--foreground)'
+            }}>
+              The Endless Scroll of Irrelevance
+            </h2>
+
+            <p style={{ marginBottom: '24px' }}>
+              It always starts the same way. I open Google. I type in something like "marketing agencies in Chicago" or "e-commerce businesses California" or "SaaS startups hiring." Hit enter. And then the scroll begins.
+            </p>
+
+            <p style={{ marginBottom: '24px' }}>
+              Page one: a few promising results buried under ads and directories. Page two: slightly less relevant. Page three: why am I looking at a blog post from 2019? Page four: this has nothing to do with what I searched.
+            </p>
+
+            <p style={{ marginBottom: '24px' }}>
+              I click through to websites. Half of them are outdated. Some don't even load. Others look promising until I realize they're a completely different type of business than what I need. I open tab after tab, trying to piece together whether each company is actually a good fit.
+            </p>
+
+            <p style={{ marginBottom: '24px' }}>
+              Two hours pass. My browser has 34 tabs open. My spreadsheet has... 8 names. Eight. And I'm not even confident that half of them are worth reaching out to.
+            </p>
+
+            {/* The Alternatives */}
+            <h2 style={{
+              fontSize: '1.5rem',
+              fontWeight: 600,
+              marginTop: '48px',
+              marginBottom: '20px',
+              color: 'var(--foreground)'
+            }}>
+              The Tools That Don't Quite Work
+            </h2>
+
+            <p style={{ marginBottom: '24px' }}>
+              So I try other approaches. LinkedIn—surely the professional network can help me find professionals. But the search filters are frustratingly limited unless you pay for Sales Navigator. And even then, you're filtering by job titles and company sizes, not by whether they actually need what you offer.
+            </p>
+
+            <p style={{ marginBottom: '24px' }}>
+              Industry directories? Outdated. Half the listings are for companies that no longer exist or have pivoted to something completely different. The contact information is wrong. The categories are too broad to be useful.
+            </p>
+
+            <p style={{ marginBottom: '24px' }}>
+              Local business listings? Better for finding restaurants than B2B prospects. Google Maps is great if you need a plumber, less great if you need a series-A funded fintech startup in the Bay Area.
+            </p>
+
+            <p style={{ marginBottom: '24px', background: '#f5f0ff', padding: '20px', borderRadius: '8px', borderLeft: '4px solid #7c3aed' }}>
+              Every tool I tried felt like it was designed for someone else's use case. None of them were built for what I actually needed: finding the right businesses to pitch.
+            </p>
+
+            {/* The Jealousy */}
+            <h2 style={{
+              fontSize: '1.5rem',
+              fontWeight: 600,
+              marginTop: '48px',
+              marginBottom: '20px',
+              color: 'var(--foreground)'
+            }}>
+              The Competitor Question
+            </h2>
+
+            <p style={{ marginBottom: '24px' }}>
+              Meanwhile, I'd watch my competitors thrive. New client announcement. Another partnership. A case study with exactly the kind of company I'd been trying to find.
+            </p>
+
+            <p style={{ marginBottom: '24px' }}>
+              How? How were they finding these people?
+            </p>
+
+            <p style={{ marginBottom: '24px' }}>
+              I convinced myself they must have an unfair advantage. A secret network. Industry connections I didn't have. Maybe they went to the right schools or worked at the right companies or knew the right people. Maybe they had some exclusive database I didn't know about.
+            </p>
+
+            <p style={{ marginBottom: '24px' }}>
+              The truth was more frustrating and more hopeful at the same time: they weren't doing anything magical. They just weren't doing it manually.
+            </p>
+
+            {/* The Realization */}
+            <h2 style={{
+              fontSize: '1.5rem',
+              fontWeight: 600,
+              marginTop: '48px',
+              marginBottom: '20px',
+              color: 'var(--foreground)'
+            }}>
+              The Wall Isn't Invisible—It's Manual
+            </h2>
+
+            <p style={{ marginBottom: '24px' }}>
+              Here's what I eventually realized: the prospects I needed weren't hidden. They were right there on Google, in local business directories, scattered across the internet. The information was publicly available.
+            </p>
+
+            <p style={{ marginBottom: '24px' }}>
+              The problem wasn't access. The problem was extraction.
+            </p>
+
+            <p style={{ marginBottom: '24px' }}>
+              Manually searching Google, clicking through results, evaluating each website, copying information into a spreadsheet—this process doesn't scale. It's not that it doesn't work; it's that it works so slowly that you burn out before you get anywhere meaningful.
+            </p>
+
+            <p style={{ marginBottom: '24px' }}>
+              The "invisible wall" was really just a math problem. If it takes 15 minutes to properly research one prospect, and you need 100 prospects to get 10 responses to get 2 calls to get 1 client... you're looking at 25 hours of pure prospecting work. For one client. And that's before you've written a single outreach message.
+            </p>
+
+            {/* The Solution */}
+            <h2 style={{
+              fontSize: '1.5rem',
+              fontWeight: 600,
+              marginTop: '48px',
+              marginBottom: '20px',
+              color: 'var(--foreground)'
+            }}>
+              Breaking Through
+            </h2>
+
+            <p style={{ marginBottom: '24px' }}>
+              What changed everything was automating the search itself. Instead of manually Googling and clicking through results, I started using tools that could:
+            </p>
+
+            <ul style={{
+              marginLeft: '24px',
+              marginBottom: '24px',
+              listStyleType: 'disc'
+            }}>
+              <li style={{ marginBottom: '12px' }}>Search Google with my specific criteria</li>
+              <li style={{ marginBottom: '12px' }}>Crawl local business directories automatically</li>
+              <li style={{ marginBottom: '12px' }}>Compile results into a clean, usable list</li>
+              <li style={{ marginBottom: '12px' }}>Pull relevant information from each website</li>
+            </ul>
+
+            <p style={{ marginBottom: '24px' }}>
+              What used to take me an entire afternoon now takes 15 minutes. I type in my search phrase—"digital marketing agencies Denver" or "Shopify stores selling outdoor gear"—and let the automation do the crawling, filtering, and compiling.
+            </p>
+
+            <p style={{ marginBottom: '24px' }}>
+              The prospects were never hidden. I just needed a better way to find them.
+            </p>
+
+            {/* The Transformation */}
+            <h2 style={{
+              fontSize: '1.5rem',
+              fontWeight: 600,
+              marginTop: '48px',
+              marginBottom: '20px',
+              color: 'var(--foreground)'
+            }}>
+              From Scarcity to Abundance
+            </h2>
+
+            <p style={{ marginBottom: '24px' }}>
+              The strangest part of breaking through the wall? Suddenly I had the opposite problem. Instead of struggling to find enough prospects, I had more than I could possibly reach out to.
+            </p>
+
+            <p style={{ marginBottom: '24px' }}>
+              That's actually a good problem to have. When you have abundance, you can be selective. You can focus on the best-fit prospects instead of reaching out to anyone who might remotely be relevant. You can test different approaches with different segments. You can build a sustainable pipeline instead of desperately chasing every lead.
+            </p>
+
+            <p style={{ marginBottom: '24px' }}>
+              The competitors I was jealous of? They weren't geniuses and they didn't have secret connections. They just figured out earlier than I did that prospecting doesn't have to be a manual slog. They let technology do the searching while they focused on the conversations.
+            </p>
+
+            <p style={{ 
+              marginBottom: '24px', 
+              fontWeight: 600, 
+              fontSize: '1.15rem',
+              color: '#7c3aed'
+            }}>
+              The wall isn't invisible, and it isn't impenetrable. You've just been trying to climb it by hand. Stop. Let something else do the climbing for you.
+            </p>
+
+          </div>
+        </article>
+      </div>
+      <Footer />
+    </main>
+  );
+}
+

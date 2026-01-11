@@ -6,6 +6,13 @@ import Link from 'next/link';
 
 const articles = [
   {
+    slug: 'invisible-wall',
+    title: 'The Invisible Wall: Why Finding the Right People to Pitch Feels Impossible',
+    excerpt: 'Hours of searching, pages of irrelevant results, a spreadsheet with 12 names. The prospects are out there—you just need a better way to find them.',
+    date: 'January 2026',
+    readTime: '7 min read'
+  },
+  {
     slug: 'template-trap',
     title: 'Dear [FIRST_NAME]: The Template That Killed My Response Rate',
     excerpt: 'I thought I\'d cracked the code with the perfect email template. 500 emails later, I had 3 responses—two were unsubscribes. Here\'s what I learned about why templates fail and what actually works.',

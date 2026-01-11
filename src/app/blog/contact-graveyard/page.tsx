@@ -105,6 +105,25 @@ export default function ContactGraveyardArticle() {
               My heart sank.
             </p>
 
+            {/* Image */}
+            <div style={{
+              margin: '48px auto',
+              maxWidth: '500px',
+              borderRadius: 'var(--radius)',
+              overflow: 'hidden',
+              boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)'
+            }}>
+              <img 
+                src="/blog/graveyard.png" 
+                alt="The Contact Page Graveyard - Where opportunities go to die"
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  display: 'block'
+                }}
+              />
+            </div>
+
             {/* The Problem */}
             <h2 style={{
               fontSize: '1.5rem',

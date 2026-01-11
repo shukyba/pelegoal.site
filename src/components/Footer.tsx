@@ -109,19 +109,22 @@ export default function Footer() {
               }}>
                 Articles
               </p>
-              <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '8px',
-                alignItems: 'flex-end'
-              }}>
-                <FooterLink href="/blog/template-trap">
-                  The Template Trap
-                </FooterLink>
-                <FooterLink href="/blog/contact-graveyard">
-                  The Contact Page Graveyard
-                </FooterLink>
-              </div>
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '8px',
+              alignItems: 'flex-end'
+            }}>
+              <FooterLink href="/blog/invisible-wall">
+                The Invisible Wall
+              </FooterLink>
+              <FooterLink href="/blog/template-trap">
+                The Template Trap
+              </FooterLink>
+              <FooterLink href="/blog/contact-graveyard">
+                The Contact Page Graveyard
+              </FooterLink>
+            </div>
             </div>
           </div>
         </div>
