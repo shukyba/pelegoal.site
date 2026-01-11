@@ -302,38 +302,6 @@ export default function TemplateTrapArticle() {
               Because in a world drowning in automated outreach, the emails that feel human are the only ones that get read.
             </p>
 
-            {/* CTA */}
-            <div style={{
-              marginTop: '48px',
-              padding: '32px',
-              background: 'linear-gradient(135deg, #f5f0ff 0%, #ede0ff 100%)',
-              borderRadius: '12px',
-              textAlign: 'center'
-            }}>
-              <p style={{ 
-                marginBottom: '20px', 
-                fontSize: '1.1rem',
-                color: 'var(--foreground)'
-              }}>
-                Ready to ditch the templates and try AI-powered personalization?
-              </p>
-              <Link
-                href="/#cta"
-                style={{
-                  display: 'inline-block',
-                  background: 'linear-gradient(135deg, #9c74f4 0%, #d946ef 100%)',
-                  color: 'white',
-                  padding: '14px 32px',
-                  borderRadius: 'var(--radius)',
-                  textDecoration: 'none',
-                  fontWeight: 600,
-                  fontSize: '1rem'
-                }}
-              >
-                Get Started with PeleGoal
-              </Link>
-            </div>
-
           </div>
         </article>
       </div>

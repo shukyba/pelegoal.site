@@ -299,38 +299,6 @@ export default function ContactGraveyardArticle() {
               Your time is too valuable to spend typing your name into boxes. Find the direct routes. Automate the rest. And stop letting contact forms bury your opportunities.
             </p>
 
-            {/* CTA */}
-            <div style={{
-              marginTop: '48px',
-              padding: '32px',
-              background: 'linear-gradient(135deg, #f5f0ff 0%, #ede0ff 100%)',
-              borderRadius: '12px',
-              textAlign: 'center'
-            }}>
-              <p style={{ 
-                marginBottom: '20px', 
-                fontSize: '1.1rem',
-                color: 'var(--foreground)'
-              }}>
-                Ready to bypass the contact form graveyard?
-              </p>
-              <Link
-                href="/#cta"
-                style={{
-                  display: 'inline-block',
-                  background: 'linear-gradient(135deg, #9c74f4 0%, #d946ef 100%)',
-                  color: 'white',
-                  padding: '14px 32px',
-                  borderRadius: 'var(--radius)',
-                  textDecoration: 'none',
-                  fontWeight: 600,
-                  fontSize: '1rem'
-                }}
-              >
-                Get Started with PeleGoal
-              </Link>
-            </div>
-
           </div>
         </article>
       </div>
