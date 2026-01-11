@@ -341,7 +341,7 @@ export default function Home() {
             boxShadow: '0 20px 60px rgba(156, 116, 244, 0.3)'
           }}>
             <a
-              href="https://www.youtube.com/watch?v=Vmnlc5REeX8"
+              href="https://www.youtube.com/watch?v=Q6k9w-uRDvc"
               target="_blank"
               rel="noopener noreferrer"
               title="Watch PeleGoal Tutorial on YouTube"
@@ -356,7 +356,7 @@ export default function Home() {
               }}
             >
               <img
-                src="https://img.youtube.com/vi/Vmnlc5REeX8/maxresdefault.jpg"
+                src="https://img.youtube.com/vi/Q6k9w-uRDvc/maxresdefault.jpg"
                 alt="PeleGoal Tutorial Video"
                 style={{
                   width: '100%',
