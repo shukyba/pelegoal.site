@@ -1,6 +1,7 @@
 import { LINKS } from '@/config/links';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import StatsSection from '@/components/StatsSection';
 
 export default function Home() {
   return (
@@ -70,6 +71,89 @@ export default function Home() {
           }}>
             Get Started
           </a>
+        </div>
+      </section>
+
+      {/* Dotted Divider */}
+      <div style={{
+        borderTop: '2px dotted rgba(156, 116, 244, 0.3)',
+        margin: '0'
+      }}/>
+
+      <StatsSection />
+
+      {/* Dotted Divider */}
+      <div style={{
+        borderTop: '2px dotted rgba(156, 116, 244, 0.3)',
+        margin: '0'
+      }}/>
+
+      {/* Personal Story Section */}
+      <section style={{
+        padding: 'clamp(60px, 12vw, 100px) 0',
+        background: 'linear-gradient(180deg, #fdfcff 0%, #f8f5ff 50%, #ffffff 100%)'
+      }}>
+        <div className="container">
+          <div style={{
+            maxWidth: '800px',
+            margin: '0 auto'
+          }}>
+            {/* Quote Icon */}
+            <div style={{ 
+              textAlign: 'center',
+              marginBottom: '30px'
+            }}>
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" style={{ color: '#9c74f4', opacity: 0.6 }}>
+                <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21c0 1 0 1 1 1z" fill="currentColor"/>
+                <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" fill="currentColor"/>
+              </svg>
+            </div>
+
+            <h2 style={{
+              fontSize: 'clamp(1.75rem, 5vw, 2.5rem)',
+              textAlign: 'center',
+              marginBottom: '40px',
+              color: '#1e293b',
+              fontWeight: 'bold'
+            }}>
+              Why I Built This
+            </h2>
+
+            <div style={{
+              fontSize: 'clamp(1rem, 2vw, 1.15rem)',
+              lineHeight: '1.9',
+              color: '#475569',
+              textAlign: 'left'
+            }}>
+              <p style={{ marginBottom: '24px' }}>
+                I remember the exact moment I hit rock bottom with marketing. It was 2 AM, my eyes burning from staring at spreadsheets, surrounded by half-empty coffee cups. I had spent the entire week—nearly 60 hours—manually searching for potential clients, copying and pasting emails into a spreadsheet, and writing the same generic outreach message over and over again. The result? Three responses. Three. Out of hundreds of emails sent.
+              </p>
+
+              <p style={{ marginBottom: '24px' }}>
+                The frustration was overwhelming. Here I was, pouring my heart into building something meaningful, but I couldn't even get people to hear about it. Marketing felt like screaming into a void. Every "guru" promised easy solutions, but the reality was endless hours of tedious work with diminishing returns. I questioned everything—my product, my approach, myself.
+              </p>
+
+              <p style={{ marginBottom: '24px' }}>
+                What hurt the most wasn't the wasted time. It was watching competitors with bigger budgets and larger teams effortlessly reach audiences while I struggled to send personalized messages at scale. The tools that existed were either prohibitively expensive or so complicated they required a dedicated team to operate. For solo founders and small businesses like mine, it felt like the deck was stacked against us.
+              </p>
+
+              <p style={{ marginBottom: '24px' }}>
+                That night, something shifted. Instead of feeling defeated, I got angry—the productive kind of angry. I started sketching out what I actually needed: a way to search for the right prospects using Google or local business searches, automatically compile those websites into a manageable list, and then extract the contact information I needed—emails, social profiles, contact pages—without manually clicking through hundreds of sites.
+              </p>
+
+              <p style={{ marginBottom: '24px' }}>
+                But finding contacts was only half the battle. I needed to actually reach out, and generic templates were getting ignored. So I imagined a system where AI could analyze each prospect's website and help craft messages that actually resonated with them specifically. And for those contact forms that every business seems to hide behind? An extension that could intelligently fill them out, saving hours of repetitive typing.
+              </p>
+
+              <p style={{ marginBottom: '24px' }}>
+                That vision became PeleGoal. Today, what used to take me a week can be done in an afternoon. You enter your search phrase, our system scours Google and local business directories, compiles your prospect list, extracts every piece of contact information, and—here's the magic—our AI helps you craft personalized messages for each one. The browser extension handles the tedious form-filling, letting you focus on what actually matters: building real connections.
+              </p>
+
+              <p style={{ marginBottom: '0' }}>
+                I built this because I lived through the pain of doing it the hard way. Every feature exists because I desperately wished it existed during those sleepless nights. If you've ever felt that same frustration—that sense that marketing shouldn't be this hard—you're exactly who I built this for.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -383,6 +467,137 @@ export default function Home() {
               </svg>
               SIGN UP FOR FREE
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Customer Reviews Section */}
+      <section style={{
+        padding: 'clamp(60px, 12vw, 100px) 0',
+        background: 'linear-gradient(180deg, #ffffff 0%, #f8f9ff 50%, #faf8ff 100%)'
+      }}>
+        <div className="container">
+          <h2 style={{
+            fontSize: 'clamp(1.75rem, 5vw, 2.5rem)',
+            textAlign: 'center',
+            marginBottom: '16px',
+            color: '#1e293b',
+            fontWeight: 'bold'
+          }}>
+            What Our Users Say
+          </h2>
+          <p style={{
+            textAlign: 'center',
+            color: '#64748b',
+            fontSize: '1.1rem',
+            marginBottom: '50px',
+            maxWidth: '600px',
+            margin: '0 auto 50px'
+          }}>
+            Join thousands of marketers and business owners who transformed their outreach
+          </p>
+          
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '30px'
+          }}>
+            {[
+              {
+                name: 'Sarah M.',
+                role: 'Marketing Consultant',
+                quote: 'PeleGoal cut my prospecting time from days to hours. The AI personalization is a game-changer.',
+                initials: 'SM'
+              },
+              {
+                name: 'James K.',
+                role: 'Agency Owner',
+                quote: "Finally, outreach that doesn't feel like spam. My response rates have never been higher.",
+                initials: 'JK'
+              },
+              {
+                name: 'Elena R.',
+                role: 'Freelance Designer',
+                quote: "I used to dread finding new clients. Now it's the easiest part of my week.",
+                initials: 'ER'
+              }
+            ].map((testimonial, i) => (
+              <div 
+                key={i} 
+                className="testimonial-card"
+                style={{
+                  background: 'white',
+                  padding: '32px',
+                  borderRadius: 'var(--radius)',
+                  border: '1px solid rgba(156, 116, 244, 0.15)',
+                  boxShadow: '0 4px 20px rgba(124, 58, 237, 0.08)'
+                }}
+              >
+                {/* Quote Icon */}
+                <svg 
+                  width="32" 
+                  height="32" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  style={{ color: '#9c74f4', opacity: 0.4, marginBottom: '16px' }}
+                >
+                  <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21c0 1 0 1 1 1z" fill="currentColor"/>
+                  <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" fill="currentColor"/>
+                </svg>
+                
+                {/* Stars */}
+                <div style={{ marginBottom: '16px', display: 'flex', gap: '4px' }}>
+                  {[...Array(5)].map((_, starIdx) => (
+                    <svg 
+                      key={starIdx}
+                      width="20" 
+                      height="20" 
+                      viewBox="0 0 24 24" 
+                      fill="#f59e0b"
+                    >
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                  ))}
+                </div>
+                
+                {/* Quote */}
+                <p style={{
+                  fontSize: '1.05rem',
+                  lineHeight: '1.7',
+                  color: '#475569',
+                  marginBottom: '24px',
+                  fontStyle: 'italic'
+                }}>
+                  "{testimonial.quote}"
+                </p>
+                
+                {/* Author */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <div style={{
+                    width: '48px',
+                    height: '48px',
+                    borderRadius: '50%',
+                    background: 'linear-gradient(135deg, #9c74f4 0%, #d946ef 100%)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: 'white',
+                    fontWeight: 'bold',
+                    fontSize: '1rem'
+                  }}>
+                    {testimonial.initials}
+                  </div>
+                  <div>
+                    <div style={{ fontWeight: '600', color: '#1e293b' }}>
+                      {testimonial.name}
+                    </div>
+                    <div style={{ fontSize: '0.9rem', color: '#64748b' }}>
+                      {testimonial.role}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

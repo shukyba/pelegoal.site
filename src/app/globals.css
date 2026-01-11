@@ -334,6 +334,26 @@ body {
   animation: sparkle-pulse 2s ease-in-out infinite;
 }
 
+/* Progress Bar Fill Animation */
+@keyframes progress-fill {
+  from { width: 0; }
+}
+
+.progress-bar-fill {
+  animation: progress-fill 1.5s ease-out forwards;
+}
+
+/* Testimonial Card Hover */
+.testimonial-card {
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(124, 58, 237, 0.2);
+  border-color: rgba(156, 116, 244, 0.4);
+}
+
 /* Note: Dark mode styling is now handled via JavaScript state in page.tsx */
 
 /* Header Button Text - Sign In Hidden on Mobile */
