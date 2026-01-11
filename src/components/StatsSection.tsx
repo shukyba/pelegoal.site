@@ -270,8 +270,8 @@ export default function StatsSection() {
           Powering Business Growth
         </h2>
         
-        {/* Big Numbers Row */}
-        <div style={{
+        {/* Big Numbers Row - Hidden */}
+        {/* <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
           gap: '40px',
@@ -289,7 +289,7 @@ export default function StatsSection() {
               index={i}
             />
           ))}
-        </div>
+        </div> */}
 
         {/* Progress Bars Row */}
         <div style={{
