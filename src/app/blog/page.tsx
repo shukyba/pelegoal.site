@@ -1,0 +1,144 @@
+'use client';
+
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import Link from 'next/link';
+
+const articles = [
+  {
+    slug: 'template-trap',
+    title: 'Dear [FIRST_NAME]: The Template That Killed My Response Rate',
+    excerpt: 'I thought I\'d cracked the code with the perfect email template. 500 emails later, I had 3 responses—two were unsubscribes. Here\'s what I learned about why templates fail and what actually works.',
+    date: 'January 2026',
+    readTime: '8 min read'
+  },
+  {
+    slug: 'contact-graveyard',
+    title: 'The Contact Page Graveyard: Where Opportunities Go to Die',
+    excerpt: 'You found the perfect prospect. You click "Contact." No email—just a form. That message will probably never be read. Here\'s how to escape the contact form trap.',
+    date: 'January 2026',
+    readTime: '7 min read'
+  }
+];
+
+export default function BlogPage() {
+  return (
+    <main style={{
+      background: 'linear-gradient(135deg, #f5f0ff 0%, #faf5ff 50%, #fefaff 100%)',
+      minHeight: '100vh',
+      display: 'flex',
+      flexDirection: 'column'
+    }}>
+      <Header />
+      <div style={{
+        flex: 1,
+        padding: '40px 0'
+      }}>
+        <div className="container" style={{
+          maxWidth: '900px',
+          margin: '0 auto',
+          padding: '40px 20px'
+        }}>
+          <Link 
+            href="/" 
+            style={{
+              display: 'inline-block',
+              marginBottom: '30px',
+              color: 'var(--brand-purple)',
+              textDecoration: 'none',
+              fontWeight: 500,
+              transition: 'color 0.3s ease'
+            }}
+          >
+            ← Back to Home
+          </Link>
+
+          <h1 style={{
+            fontSize: 'clamp(2rem, 5vw, 3rem)',
+            fontWeight: 700,
+            marginBottom: '48px',
+            color: 'var(--foreground)'
+          }}>
+            Blog
+          </h1>
+
+          {/* Articles Grid */}
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '24px'
+          }}>
+            {articles.map((article) => (
+              <Link
+                key={article.slug}
+                href={`/blog/${article.slug}`}
+                style={{
+                  display: 'block',
+                  background: 'white',
+                  padding: '32px',
+                  borderRadius: 'var(--radius)',
+                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+                  textDecoration: 'none',
+                  transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+                  border: '1px solid transparent'
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  e.currentTarget.style.boxShadow = '0 12px 24px -4px rgba(124, 58, 237, 0.15)';
+                  e.currentTarget.style.borderColor = 'rgba(156, 116, 244, 0.3)';
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+                  e.currentTarget.style.borderColor = 'transparent';
+                }}
+              >
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  marginBottom: '12px',
+                  color: 'var(--muted-foreground)',
+                  fontSize: '0.9rem'
+                }}>
+                  <span>{article.date}</span>
+                  <span>•</span>
+                  <span>{article.readTime}</span>
+                </div>
+
+                <h2 style={{
+                  fontSize: 'clamp(1.25rem, 3vw, 1.5rem)',
+                  fontWeight: 600,
+                  marginBottom: '12px',
+                  color: 'var(--foreground)',
+                  lineHeight: 1.3
+                }}>
+                  {article.title}
+                </h2>
+
+                <p style={{
+                  color: 'var(--muted-foreground)',
+                  lineHeight: 1.7,
+                  fontSize: '1rem'
+                }}>
+                  {article.excerpt}
+                </p>
+
+                <span style={{
+                  display: 'inline-block',
+                  marginTop: '16px',
+                  color: 'var(--brand-purple)',
+                  fontWeight: 500,
+                  fontSize: '0.95rem'
+                }}>
+                  Read more →
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </main>
+  );
+}
