@@ -14,9 +14,10 @@ export default function Home() {
         color: '#1e293b',
         padding: 'clamp(60px, 10vw, 100px) 0',
         textAlign: 'center',
-        position: 'relative'
+        position: 'relative',
+        overflow: 'visible'
       }}>
-        <div className="container">
+        <div className="container" style={{ overflow: 'visible' }}>
           {/* Sparkle Icon with Spin + Pulse Animation */}
           <div className="icon-spin-pulse" style={{ 
             display: 'inline-block',
@@ -39,24 +40,28 @@ export default function Home() {
             fontSize: 'clamp(2rem, 6vw, 4rem)',
             marginBottom: '24px',
             fontWeight: 'bold',
-            lineHeight: '1.2',
+            lineHeight: '1.3',
             background: 'linear-gradient(135deg, #7c3aed 0%, #9c74f4 50%, #d946ef 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text'
+            backgroundClip: 'text',
+            padding: '0 20px',
+            overflow: 'visible'
           }}>
-            Expand Reach. Meet Goals.
+            Getting leads in 3, 2, 1...
           </h2>
           <p style={{
             fontSize: 'clamp(1.1rem, 3vw, 1.5rem)',
             marginBottom: '30px',
-            maxWidth: '900px',
+            maxWidth: '650px',
             margin: '0 auto 30px',
             color: '#64748b',
-            lineHeight: '1.6'
+            lineHeight: '1.6',
+            wordBreak: 'keep-all',
+            hyphens: 'none'
           }}>
-            Scale your business outreach with AI-powered personalization and intelligent automation. 
-            Reach more prospects, at the right moment, with tailored messages.
+            Stop wasting time on manual work.
+            Search, find, and connect — get your leads in three easy steps.
           </p>
           <a href={LINKS.auth.signUp} className="hero-cta-button" style={{
             display: 'inline-block',
@@ -69,7 +74,7 @@ export default function Home() {
             fontWeight: 'bold',
             boxShadow: '0 4px 16px rgba(156, 116, 244, 0.3)'
           }}>
-            Get Started
+            Get Started FREE
           </a>
         </div>
       </section>

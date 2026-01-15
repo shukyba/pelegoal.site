@@ -134,7 +134,7 @@ export default function Header() {
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style={{ flexShrink: 0 }}>
                 <path d="M12 4 L13.2 10.8 L20 12 L13.2 13.2 L12 20 L10.8 13.2 L4 12 L10.8 10.8 Z"/>
               </svg>
-              Sign Up
+              Sign Up FREE
             </a>
           </nav>
         </div>
