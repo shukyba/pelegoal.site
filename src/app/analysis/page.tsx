@@ -4,7 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { analyzeWebsite } from '@/lib/analysisService';
 
 interface AnalysisResult {
@@ -13,7 +13,7 @@ interface AnalysisResult {
   message: string;
 }
 
-export default function AnalysisPage() {
+function AnalysisContent() {
   const searchParams = useSearchParams();
   const [results, setResults] = useState<AnalysisResult | null>(null);
   const [websiteUrl, setWebsiteUrl] = useState('');
@@ -895,5 +895,49 @@ export default function AnalysisPage() {
         </div>
       )}
     </main>
+  );
+}
+
+export default function AnalysisPage() {
+  return (
+    <Suspense fallback={
+      <main style={{
+        background: 'linear-gradient(135deg, #f5f0ff 0%, #faf5ff 50%, #fefaff 100%)',
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column'
+      }}>
+        <Header />
+        <div style={{
+          flex: 1,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '40px 20px'
+        }}>
+          <div style={{ textAlign: 'center' }}>
+            <div style={{
+              width: '64px',
+              height: '64px',
+              margin: '0 auto 24px',
+              border: '4px solid #f1f5f9',
+              borderTop: '4px solid var(--brand-purple)',
+              borderRadius: '50%',
+              animation: 'spin 1s linear infinite'
+            }} />
+            <style dangerouslySetInnerHTML={{__html: `
+              @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+              }
+            `}} />
+            <p style={{ color: '#64748b' }}>Loading...</p>
+          </div>
+        </div>
+        <Footer />
+      </main>
+    }>
+      <AnalysisContent />
+    </Suspense>
   );
 }
