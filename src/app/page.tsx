@@ -1,9 +1,124 @@
+'use client';
+
 import { LINKS } from '@/config/links';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import StatsSection from '@/components/StatsSection';
+import { analyzeWebsite } from '@/lib/analysisService';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
+  const [websiteUrl, setWebsiteUrl] = useState('');
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
+
+  const validateUrl = (url: string): boolean => {
+    try {
+      // Reject if user typed http:// or https:// (since UI already shows prefix)
+      if (url.startsWith('http://') || url.startsWith('https://')) {
+        return false;
+      }
+      
+      // Check if URL contains slashes (paths) - only allow domains
+      // Remove protocol if present for checking (defensive)
+      const urlWithoutProtocol = url.replace(/^https?:\/\//, '');
+      if (urlWithoutProtocol.includes('/')) {
+        return false;
+      }
+      
+      // Validate domain format
+      const domain = urlWithoutProtocol.split('?')[0].split('#')[0]; // Remove query/hash if any
+      const domainRegex = /^([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,}$/i;
+      
+      if (!domainRegex.test(domain)) {
+        return false;
+      }
+      
+      // Additional checks: domain should have at least one dot and valid TLD
+      const parts = domain.split('.');
+      if (parts.length < 2) {
+        return false;
+      }
+      
+      const tld = parts[parts.length - 1];
+      if (tld.length < 2) {
+        return false;
+      }
+      
+      // Check for valid domain characters and structure
+      if (domain.startsWith('.') || domain.endsWith('.') || domain.includes('..')) {
+        return false;
+      }
+      
+      // Add protocol for URL validation
+      const urlWithProtocol = `https://${url}`;
+      new URL(urlWithProtocol);
+      return true;
+    } catch {
+      return false;
+    }
+  };
+
+  const validateEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError('');
+
+    // Validate email
+    if (!email.trim()) {
+      setError('Please enter your email address');
+      return;
+    }
+
+    if (!validateEmail(email.trim())) {
+      setError('Please enter a valid email address');
+      return;
+    }
+
+    // Validate and normalize URL
+    const trimmedUrl = websiteUrl.trim();
+    if (!trimmedUrl) {
+      setError('Please enter a website URL');
+      return;
+    }
+
+    // Validate before normalizing
+    if (!validateUrl(trimmedUrl)) {
+      if (trimmedUrl.startsWith('http://') || trimmedUrl.startsWith('https://')) {
+        setError('Please enter only the domain (e.g., example.com). Do not include http:// or https://');
+      } else {
+        setError('Please enter a valid domain (e.g., example.com)');
+      }
+      return;
+    }
+
+    // Normalize URL by adding protocol
+    const normalizedUrl = trimmedUrl.startsWith('http://') || trimmedUrl.startsWith('https://') 
+      ? trimmedUrl 
+      : `https://${trimmedUrl}`;
+
+    setIsLoading(true);
+
+    try {
+      // Navigate to analysis page with url and email - the analysis page will make the API call
+      const params = new URLSearchParams({
+        url: normalizedUrl,
+        email: email.trim()
+      });
+      
+      router.push(`/analysis?${params.toString()}`);
+    } catch (err) {
+      setError('Something went wrong. Please try again.');
+      setIsLoading(false);
+    }
+  };
   return (
     <main>
       <Header />
@@ -21,7 +136,8 @@ export default function Home() {
           {/* Sparkle Icon with Spin + Pulse Animation */}
           <div className="icon-spin-pulse" style={{ 
             display: 'inline-block',
-            marginBottom: '20px'
+            marginBottom: '20px',
+            marginTop: '-40px'
           }}>
             <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
               <defs>
@@ -37,8 +153,8 @@ export default function Home() {
           </div>
 
           <h2 style={{
-            fontSize: 'clamp(2rem, 6vw, 4rem)',
-            marginBottom: '24px',
+            fontSize: 'clamp(1.5rem, 5vw, 4rem)',
+            marginBottom: 'clamp(24px, 5vw, 40px)',
             fontWeight: 'bold',
             lineHeight: '1.3',
             background: 'linear-gradient(135deg, #7c3aed 0%, #9c74f4 50%, #d946ef 100%)',
@@ -50,32 +166,168 @@ export default function Home() {
           }}>
             Getting leads in 3, 2, 1...
           </h2>
-          <p style={{
-            fontSize: 'clamp(1.1rem, 3vw, 1.5rem)',
-            marginBottom: '30px',
-            maxWidth: '650px',
-            margin: '0 auto 30px',
-            color: '#64748b',
-            lineHeight: '1.6',
-            wordBreak: 'keep-all',
-            hyphens: 'none'
+          
+          {/* Two Column Layout */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: 'clamp(24px, 5vw, 60px)',
+            alignItems: 'center',
+            maxWidth: '1000px',
+            margin: '0 auto'
           }}>
-            Stop wasting time on manual work.
-            Search, find, and connect — get your leads in three easy steps.
-          </p>
-          <a href={LINKS.auth.signUp} className="hero-cta-button" style={{
-            display: 'inline-block',
-            background: 'linear-gradient(135deg, #9c74f4 0%, #d946ef 100%)',
-            color: 'white',
-            padding: '16px 48px',
-            borderRadius: 'var(--radius)',
-            textDecoration: 'none',
-            fontSize: '1.1rem',
-            fontWeight: 'bold',
-            boxShadow: '0 4px 16px rgba(156, 116, 244, 0.3)'
-          }}>
-            Get Started FREE
-          </a>
+            {/* Left Column - Message */}
+            <div style={{
+              textAlign: 'left'
+            }}>
+              <p style={{
+                fontSize: 'clamp(1.1rem, 3vw, 1.5rem)',
+                color: '#64748b',
+                lineHeight: '1.6',
+                margin: 0
+              }}>
+                Get a free analysis of how PeleGoal can help grow your business. Enter your website URL and we'll provide personalized search suggestions and outreach strategies tailored to your industry.
+              </p>
+            </div>
+
+            {/* Right Column - Form */}
+            <form onSubmit={handleSubmit} style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '16px'
+            }}>
+              <div style={{ position: 'relative' }}>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    setError('');
+                  }}
+                  placeholder="Your email address"
+                  style={{
+                    width: '100%',
+                    padding: '16px 20px',
+                    fontSize: '1rem',
+                    borderRadius: 'var(--radius)',
+                    border: error && !websiteUrl ? '2px solid #ef4444' : '2px solid rgba(156, 116, 244, 0.2)',
+                    background: 'white',
+                    color: '#1e293b',
+                    outline: 'none',
+                    transition: 'all 0.3s ease',
+                    boxShadow: '0 2px 8px rgba(156, 116, 244, 0.1)'
+                  }}
+                  onFocus={(e) => {
+                    e.currentTarget.style.borderColor = 'var(--brand-purple)';
+                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(156, 116, 244, 0.2)';
+                  }}
+                  onBlur={(e) => {
+                    e.currentTarget.style.borderColor = error && !websiteUrl ? '#ef4444' : 'rgba(156, 116, 244, 0.2)';
+                    e.currentTarget.style.boxShadow = '0 2px 8px rgba(156, 116, 244, 0.1)';
+                  }}
+                />
+              </div>
+              <div style={{ position: 'relative' }}>
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'stretch',
+                  borderRadius: 'var(--radius)',
+                  overflow: 'hidden',
+                  border: error && websiteUrl ? '2px solid #ef4444' : '2px solid rgba(156, 116, 244, 0.2)',
+                  boxShadow: '0 2px 8px rgba(156, 116, 244, 0.1)',
+                  transition: 'all 0.3s ease'
+                }}>
+                  <span
+                    style={{
+                      padding: '16px 6px',
+                      fontSize: '1rem',
+                      background: '#f1f5f9',
+                      color: '#64748b',
+                      display: 'flex',
+                      alignItems: 'center',
+                      flexShrink: 0,
+                      whiteSpace: 'nowrap'
+                    }}
+                  >
+                    https://
+                  </span>
+                  <input
+                    type="text"
+                    value={websiteUrl}
+                    onChange={(e) => {
+                      setWebsiteUrl(e.target.value);
+                      setError('');
+                    }}
+                    placeholder="example.com"
+                    style={{
+                      flex: 1,
+                      padding: '16px 20px',
+                      fontSize: '1rem',
+                      border: 'none',
+                      background: 'white',
+                      color: '#1e293b',
+                      outline: 'none',
+                      transition: 'all 0.3s ease'
+                    }}
+                    onFocus={(e) => {
+                      const container = e.currentTarget.parentElement;
+                      if (container) {
+                        container.style.borderColor = 'var(--brand-purple)';
+                        container.style.boxShadow = '0 4px 12px rgba(156, 116, 244, 0.2)';
+                      }
+                    }}
+                    onBlur={(e) => {
+                      const container = e.currentTarget.parentElement;
+                      if (container) {
+                        container.style.borderColor = error && websiteUrl ? '#ef4444' : 'rgba(156, 116, 244, 0.2)';
+                        container.style.boxShadow = '0 2px 8px rgba(156, 116, 244, 0.1)';
+                      }
+                    }}
+                  />
+                </div>
+              </div>
+              {error && (
+                <p style={{
+                  marginTop: '-8px',
+                  color: '#ef4444',
+                  fontSize: '0.875rem',
+                  textAlign: 'left'
+                }}>
+                  {error}
+                </p>
+              )}
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="hero-cta-button"
+                style={{
+                  background: 'linear-gradient(135deg, #9c74f4 0%, #d946ef 100%)',
+                  color: 'white',
+                  padding: '16px 48px',
+                  borderRadius: 'var(--radius)',
+                  border: 'none',
+                  fontSize: '1.1rem',
+                  fontWeight: 'bold',
+                  boxShadow: '0 4px 16px rgba(156, 116, 244, 0.3)',
+                  cursor: isLoading ? 'wait' : 'pointer',
+                  transition: 'all 0.3s ease',
+                  opacity: isLoading ? 0.7 : 1
+                }}
+                onMouseOver={(e) => {
+                  if (!isLoading) {
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(156, 116, 244, 0.4)';
+                  }
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 4px 16px rgba(156, 116, 244, 0.3)';
+                }}
+              >
+                {isLoading ? 'Analyzing...' : 'Get FREE Analysis'}
+              </button>
+            </form>
+          </div>
         </div>
       </section>
 
@@ -135,27 +387,15 @@ export default function Home() {
               </p>
 
               <p style={{ marginBottom: '24px' }}>
-                The frustration was overwhelming. Here I was, pouring my heart into building something meaningful, but I couldn't even get people to hear about it. Marketing felt like screaming into a void. Every "guru" promised easy solutions, but the reality was endless hours of tedious work with diminishing returns. I questioned everything—my product, my approach, myself.
+                The frustration was overwhelming. Here I was, pouring my heart into building something meaningful, but I couldn't even get people to hear about it. Marketing felt like screaming into a void. Every "guru" promised easy solutions, but the reality was endless hours of tedious work with diminishing returns. The tools that existed were either prohibitively expensive or so complicated they required a dedicated team to operate. For solo founders and small businesses like mine, it felt like the deck was stacked against us.
               </p>
 
               <p style={{ marginBottom: '24px' }}>
-                What hurt the most wasn't the wasted time. It was watching competitors with bigger budgets and larger teams effortlessly reach audiences while I struggled to send personalized messages at scale. The tools that existed were either prohibitively expensive or so complicated they required a dedicated team to operate. For solo founders and small businesses like mine, it felt like the deck was stacked against us.
-              </p>
-
-              <p style={{ marginBottom: '24px' }}>
-                That night, something shifted. Instead of feeling defeated, I got angry—the productive kind of angry. I started sketching out what I actually needed: a way to search for the right prospects using Google or local business searches, automatically compile those websites into a manageable list, and then extract the contact information I needed—emails, social profiles, contact pages—without manually clicking through hundreds of sites.
-              </p>
-
-              <p style={{ marginBottom: '24px' }}>
-                But finding contacts was only half the battle. I needed to actually reach out, and generic templates were getting ignored. So I imagined a system where AI could analyze each prospect's website and help craft messages that actually resonated with them specifically. And for those contact forms that every business seems to hide behind? An extension that could intelligently fill them out, saving hours of repetitive typing.
-              </p>
-
-              <p style={{ marginBottom: '24px' }}>
-                That vision became PeleGoal. Today, what used to take me a week can be done in an afternoon. You enter your search phrase, our system scours Google and local business directories, compiles your prospect list, extracts every piece of contact information, and—here's the magic—our AI helps you craft personalized messages for each one. The browser extension handles the tedious form-filling, letting you focus on what actually matters: building real connections.
+                That night, something shifted. Instead of feeling defeated, I got angry—the productive kind of angry. I started sketching out what I actually needed: a way to search for the right prospects, automatically compile those websites into a manageable list, and extract contact information without manually clicking through hundreds of sites. I imagined a system where AI could analyze each prospect's website and help craft messages that actually resonated with them specifically.
               </p>
 
               <p style={{ marginBottom: '0' }}>
-                I built this because I lived through the pain of doing it the hard way. Every feature exists because I desperately wished it existed during those sleepless nights. If you've ever felt that same frustration—that sense that marketing shouldn't be this hard—you're exactly who I built this for.
+                That vision became PeleGoal. Today, what used to take me a week can be done in an afternoon. You enter your search phrase, our system scours Google and local business directories, compiles your prospect list, extracts every piece of contact information, and—here's the magic—our AI helps you craft personalized messages for each one. I built this because I lived through the pain of doing it the hard way. If you've ever felt that same frustration—that sense that marketing shouldn't be this hard—you're exactly who I built this for.
               </p>
             </div>
           </div>
