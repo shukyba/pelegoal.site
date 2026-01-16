@@ -147,7 +147,7 @@ export default function PrivacyPage() {
               listStyleType: 'disc'
             }}>
               <li style={{ marginBottom: '10px' }}>
-                <strong>URL Extraction:</strong> When you use the URL extraction feature on Google search results, the extracted URLs may be sent to the PeleGoal web application for import. No other browsing data is collected or transmitted.
+                <strong>URL Discovery:</strong> When you use the URL discovery feature on Google search results, the discovered URLs may be sent to the PeleGoal web application for import. No other browsing data is collected or transmitted.
               </li>
             </ul>
           </section>
@@ -169,7 +169,7 @@ export default function PrivacyPage() {
               marginBottom: '15px',
               listStyleType: 'disc'
             }}>
-              <li style={{ marginBottom: '8px' }}>Browsing history (except URLs you explicitly choose to extract)</li>
+              <li style={{ marginBottom: '8px' }}>Browsing history (except URLs you explicitly choose to discover)</li>
               <li style={{ marginBottom: '8px' }}>Passwords or authentication credentials</li>
               <li style={{ marginBottom: '8px' }}>Financial or payment information</li>
               <li style={{ marginBottom: '8px' }}>Health information</li>
@@ -195,7 +195,7 @@ export default function PrivacyPage() {
             }}>
               <li style={{ marginBottom: '10px' }}>Technical data is used to ensure website functionality and security</li>
               <li style={{ marginBottom: '10px' }}>Form field data is used solely to auto-fill web forms on your behalf through the Extension</li>
-              <li style={{ marginBottom: '10px' }}>Extracted URLs are used only for the import feature you initiate</li>
+              <li style={{ marginBottom: '10px' }}>Discovered URLs are used only for the import feature you initiate</li>
               <li style={{ marginBottom: '10px' }}>No data is sold to third parties</li>
               <li style={{ marginBottom: '10px' }}>No data is used for advertising purposes</li>
             </ul>
@@ -237,7 +237,7 @@ export default function PrivacyPage() {
             }}>
               <li style={{ marginBottom: '10px' }}>Retrieve configuration data</li>
               <li style={{ marginBottom: '10px' }}>Receive form field data for auto-filling</li>
-              <li style={{ marginBottom: '10px' }}>Import extracted URLs (when initiated by user)</li>
+              <li style={{ marginBottom: '10px' }}>Import discovered URLs (when initiated by user)</li>
             </ul>
             <p style={{ marginBottom: '15px' }}>
               We do not share your data with third-party services for marketing or advertising purposes.

@@ -217,7 +217,7 @@ export default function InvisibleWallArticle() {
             </p>
 
             <p style={{ marginBottom: '24px' }}>
-              The problem wasn't access. The problem was extraction.
+              The problem wasn't access. The problem was discovery.
             </p>
 
             <p style={{ marginBottom: '24px' }}>

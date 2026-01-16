@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "PeleGoal",
-  description: "Sports insights and analysis",
+  title: "PeleGoal - AI-Powered Lead Generation",
+  description: "Automate your lead generation with PeleGoal. Search Google and local business directories, discover contact information (emails, social media, contact pages), and use AI-powered message customization for personalized outreach. Streamline prospecting with our browser extension for automated form filling.",
+  keywords: "lead generation, contact discovery, email finder, outreach automation, prospecting tools, business contact finder, AI personalization, automated search",
 };
 
 export default function RootLayout({

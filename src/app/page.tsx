@@ -391,11 +391,11 @@ export default function Home() {
               </p>
 
               <p style={{ marginBottom: '24px' }}>
-                That night, something shifted. Instead of feeling defeated, I got angry—the productive kind of angry. I started sketching out what I actually needed: a way to search for the right prospects, automatically compile those websites into a manageable list, and extract contact information without manually clicking through hundreds of sites. I imagined a system where AI could analyze each prospect's website and help craft messages that actually resonated with them specifically.
+                That night, something shifted. Instead of feeling defeated, I got angry—the productive kind of angry. I started sketching out what I actually needed: a way to search for the right prospects, automatically compile those websites into a manageable list, and find contact information without manually clicking through hundreds of sites. I imagined a system where AI could analyze each prospect's website and help craft messages that actually resonated with them specifically.
               </p>
 
               <p style={{ marginBottom: '0' }}>
-                That vision became PeleGoal. Today, what used to take me a week can be done in an afternoon. You enter your search phrase, our system scours Google and local business directories, compiles your prospect list, extracts every piece of contact information, and—here's the magic—our AI helps you craft personalized messages for each one. I built this because I lived through the pain of doing it the hard way. If you've ever felt that same frustration—that sense that marketing shouldn't be this hard—you're exactly who I built this for.
+                That vision became PeleGoal. Today, what used to take me a week can be done in an afternoon. You enter your search phrase, our system scours Google and local business directories, compiles your prospect list, finds every piece of contact information, and—here's the magic—our AI helps you craft personalized messages for each one. I built this because I lived through the pain of doing it the hard way. If you've ever felt that same frustration—that sense that marketing shouldn't be this hard—you're exactly who I built this for.
               </p>
             </div>
           </div>

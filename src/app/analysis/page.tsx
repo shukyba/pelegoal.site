@@ -639,7 +639,7 @@ function AnalysisContent() {
                     color: '#475569',
                     lineHeight: '1.6'
                   }}>
-                    Automated search, extraction, and AI-powered message customization
+                    Automated search, discovery, and AI-powered message customization
                   </div>
                 </div>
               </div>

@@ -11,8 +11,8 @@ A service that helps gather contact information from websites for outreach and l
 - Search using Google or Local Business Search
 - Compile a comprehensive list of relevant sites
 
-### 3. Contact Extraction
-The service automatically extracts contact information from each site:
+### 3. Contact Discovery
+The service automatically discovers contact information from each site:
 - Email addresses
 - Social media profiles
 - Contact pages
@@ -29,7 +29,7 @@ The service automatically extracts contact information from each site:
 ## Key Features
 
 - **Automated Search**: Leverage Google and local business directories
-- **Contact Extraction**: Emails, socials, and contact pages
+- **Contact Discovery**: Emails, socials, and contact pages
 - **Browser Extension**: Autofill contact forms
 - **AI Personalization**: Tailored messages for each target
 
