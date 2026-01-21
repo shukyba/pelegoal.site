@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 export default function ContactGraveyardArticle() {
   return (
     <main style={{
-      background: 'linear-gradient(135deg, #f5f0ff 0%, #faf5ff 50%, #fefaff 100%)',
+      background: 'white',
       minHeight: '100vh',
       display: 'flex',
       flexDirection: 'column'
@@ -32,12 +32,7 @@ export default function ContactGraveyardArticle() {
         padding: '40px 0'
       }}>
         <article className="container" style={{
-          maxWidth: '800px',
-          margin: '0 auto',
-          padding: '40px 20px',
-          background: 'white',
-          borderRadius: 'var(--radius)',
-          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+          padding: '40px 20px'
         }}>
           <Link 
             href="/blog" 
@@ -148,7 +143,7 @@ export default function ContactGraveyardArticle() {
             </p>
 
             <p style={{ marginBottom: '24px' }}>
-              I used to think I was just unlucky. That my messages weren't compelling enough. That I needed to write better copy for these forms. But the truth is simpler and more frustrating: most contact form submissions never get read by anyone who matters.
+              I used to think I was just unlucky. That my messages weren't compelling enough. That I needed to write better copy for these forms. But the truth is simpler and more frustrating: most contact form submissions never get read by anyone who matters. (The solution? Find their email addresses directly. See our <Link href="/blog/email-finder-guide-2026" style={{ color: 'var(--brand-purple)', textDecoration: 'underline' }}>email finder guide</Link> for methods that actually work.)
             </p>
 
             {/* The Repetition Hell */}
@@ -245,7 +240,7 @@ export default function ContactGraveyardArticle() {
             </p>
 
             <p style={{ marginBottom: '24px' }}>
-              That's when I discovered tools that could automatically scan a website and pull out every piece of contact information available. Not just the generic info@company.com, but actual email addresses, social profiles, LinkedIn pages—the direct lines that bypass the form graveyard entirely.
+              That's when I discovered tools that could automatically scan a website and pull out every piece of contact information available. Not just the generic info@company.com, but actual email addresses, social profiles, LinkedIn pages—the direct lines that bypass the form graveyard entirely. (For a complete guide to finding emails, see our <Link href="/blog/email-finder-guide-2026" style={{ color: 'var(--brand-purple)', textDecoration: 'underline' }}>2026 email finder guide</Link>.)
             </p>
 
             <p style={{ marginBottom: '24px' }}>

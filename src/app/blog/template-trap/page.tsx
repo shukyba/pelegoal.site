@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 export default function TemplateTrapArticle() {
   return (
     <main style={{
-      background: 'linear-gradient(135deg, #f5f0ff 0%, #faf5ff 50%, #fefaff 100%)',
+      background: 'white',
       minHeight: '100vh',
       display: 'flex',
       flexDirection: 'column'
@@ -32,12 +32,7 @@ export default function TemplateTrapArticle() {
         padding: '40px 0'
       }}>
         <article className="container" style={{
-          maxWidth: '800px',
-          margin: '0 auto',
-          padding: '40px 20px',
-          background: 'white',
-          borderRadius: 'var(--radius)',
-          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+          padding: '40px 20px'
         }}>
           <Link 
             href="/blog" 
@@ -244,7 +239,7 @@ export default function TemplateTrapArticle() {
             </ul>
 
             <p style={{ marginBottom: '24px' }}>
-              But here's the problem: doing that kind of research for every single prospect is impossible at scale. You can't spend 15 minutes reading someone's website before sending every email—not if you need to reach hundreds or thousands of people.
+              But here's the problem: doing that kind of research for every single prospect is impossible at scale. You can't spend 15 minutes reading someone's website before sending every email—not if you need to reach hundreds or thousands of people. (And if you're still struggling to find prospects in the first place, check out our <Link href="/blog/invisible-wall" style={{ color: 'var(--brand-purple)', textDecoration: 'underline' }}>guide to breaking through the invisible wall</Link>.)
             </p>
 
             <p style={{ marginBottom: '24px' }}>

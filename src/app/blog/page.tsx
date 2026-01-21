@@ -6,6 +6,27 @@ import Link from 'next/link';
 
 const articles = [
   {
+    slug: 'b2b-decision-makers-2026',
+    title: 'How to Find B2B Decision Makers in 2026: Beyond LinkedIn',
+    excerpt: 'LinkedIn isn\'t enough anymore. Discover proven methods to find B2B decision makers using Google search, local directories, and automated prospecting tools in 2026.',
+    date: 'January 2026',
+    readTime: '8 min read'
+  },
+  {
+    slug: 'email-finder-guide-2026',
+    title: 'The 2026 Email Finder Guide: Tools, Methods, and What Actually Works',
+    excerpt: 'Complete guide to finding email addresses in 2026. Compare email finder tools, learn manual methods, and discover automated solutions that combine search, discovery, and personalization.',
+    date: 'January 2026',
+    readTime: '9 min read'
+  },
+  {
+    slug: 'local-business-prospecting-2026',
+    title: 'Local Business Prospecting in 2026: The Hidden Goldmine Most Marketers Miss',
+    excerpt: 'Discover why local businesses are the hidden goldmine for B2B prospecting. Learn how to find local business contacts, use local directories, and automate local prospecting in 2026.',
+    date: 'January 2026',
+    readTime: '8 min read'
+  },
+  {
     slug: 'invisible-wall',
     title: 'The Invisible Wall: Why Finding the Right People to Pitch Feels Impossible',
     excerpt: 'Hours of searching, pages of irrelevant results, a spreadsheet with 12 names. The prospects are out there—you just need a better way to find them.',
@@ -31,7 +52,7 @@ const articles = [
 export default function BlogPage() {
   return (
     <main style={{
-      background: 'linear-gradient(135deg, #f5f0ff 0%, #faf5ff 50%, #fefaff 100%)',
+      background: 'white',
       minHeight: '100vh',
       display: 'flex',
       flexDirection: 'column'
@@ -42,8 +63,6 @@ export default function BlogPage() {
         padding: '40px 0'
       }}>
         <div className="container" style={{
-          maxWidth: '900px',
-          margin: '0 auto',
           padding: '40px 20px'
         }}>
           <Link 

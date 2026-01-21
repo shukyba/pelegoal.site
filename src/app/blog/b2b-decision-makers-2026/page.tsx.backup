@@ -1,4 +1,4 @@
-import Header from '@/components/Header';
+﻿import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
 import { Metadata } from 'next';
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 export default function InvisibleWallArticle() {
   return (
     <main style={{
-      background: 'white',
+      background: 'linear-gradient(135deg, #f5f0ff 0%, #faf5ff 50%, #fefaff 100%)',
       minHeight: '100vh',
       display: 'flex',
       flexDirection: 'column'
@@ -32,7 +32,12 @@ export default function InvisibleWallArticle() {
         padding: '40px 0'
       }}>
         <article className="container" style={{
-          padding: '40px 20px'
+          maxWidth: '800px',
+          margin: '0 auto',
+          padding: '40px 20px',
+          background: 'white',
+          borderRadius: 'var(--radius)',
+          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
         }}>
           <Link 
             href="/blog" 
@@ -45,7 +50,7 @@ export default function InvisibleWallArticle() {
               transition: 'color 0.3s ease'
             }}
           >
-            ← Back to Blog
+            â† Back to Blog
           </Link>
 
           {/* Article Header */}
@@ -68,7 +73,7 @@ export default function InvisibleWallArticle() {
             fontSize: '0.95rem'
           }}>
             <span>January 2026</span>
-            <span>•</span>
+            <span>â€¢</span>
             <span>7 min read</span>
           </div>
 
@@ -154,7 +159,7 @@ export default function InvisibleWallArticle() {
             </h2>
 
             <p style={{ marginBottom: '24px' }}>
-              So I try other approaches. LinkedIn—surely the professional network can help me find professionals. But the search filters are frustratingly limited unless you pay for Sales Navigator. And even then, you're filtering by job titles and company sizes, not by whether they actually need what you offer.
+              So I try other approaches. LinkedInâ€”surely the professional network can help me find professionals. But the search filters are frustratingly limited unless you pay for Sales Navigator. And even then, you're filtering by job titles and company sizes, not by whether they actually need what you offer.
             </p>
 
             <p style={{ marginBottom: '24px' }}>
@@ -204,7 +209,7 @@ export default function InvisibleWallArticle() {
               marginBottom: '20px',
               color: 'var(--foreground)'
             }}>
-              The Wall Isn't Invisible—It's Manual
+              The Wall Isn't Invisibleâ€”It's Manual
             </h2>
 
             <p style={{ marginBottom: '24px' }}>
@@ -216,7 +221,7 @@ export default function InvisibleWallArticle() {
             </p>
 
             <p style={{ marginBottom: '24px' }}>
-              Manually searching Google, clicking through results, evaluating each website, copying information into a spreadsheet—this process doesn't scale. It's not that it doesn't work; it's that it works so slowly that you burn out before you get anywhere meaningful.
+              Manually searching Google, clicking through results, evaluating each website, copying information into a spreadsheetâ€”this process doesn't scale. It's not that it doesn't work; it's that it works so slowly that you burn out before you get anywhere meaningful.
             </p>
 
             <p style={{ marginBottom: '24px' }}>
@@ -250,7 +255,7 @@ export default function InvisibleWallArticle() {
             </ul>
 
             <p style={{ marginBottom: '24px' }}>
-              What used to take me an entire afternoon now takes 15 minutes. I type in my search phrase—"digital marketing agencies Denver" or "Shopify stores selling outdoor gear"—and let the automation do the crawling, filtering, and compiling. (For specific methods, see our guides on <Link href="/blog/b2b-decision-makers-2026" style={{ color: 'var(--brand-purple)', textDecoration: 'underline' }}>finding B2B decision makers</Link> and <Link href="/blog/local-business-prospecting-2026" style={{ color: 'var(--brand-purple)', textDecoration: 'underline' }}>local business prospecting</Link>.)
+              What used to take me an entire afternoon now takes 15 minutes. I type in my search phraseâ€”"digital marketing agencies Denver" or "Shopify stores selling outdoor gear"â€”and let the automation do the crawling, filtering, and compiling.
             </p>
 
             <p style={{ marginBottom: '24px' }}>
@@ -296,4 +301,5 @@ export default function InvisibleWallArticle() {
     </main>
   );
 }
+
 

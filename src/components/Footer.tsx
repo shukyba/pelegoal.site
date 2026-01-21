@@ -41,7 +41,7 @@ export default function Footer() {
           color: '#1e293b',
           fontWeight: 500
         }}>
-          Ready to transform your outreach?
+          Ready to find decision makers, discover contacts, and automate your prospecting?
         </p>
         <a
           href={LINKS.auth.signUp}
@@ -159,6 +159,7 @@ export default function Footer() {
               <div style={{ marginTop: '12px', display: 'flex', gap: '16px' }}>
                 <FooterLink href="/blog">Blog</FooterLink>
                 <FooterLink href="/privacy">Privacy</FooterLink>
+                <FooterLink href="/sitemap.xml">Sitemap</FooterLink>
               </div>
             </div>
 
@@ -180,6 +181,15 @@ export default function Footer() {
               gap: '8px',
               alignItems: 'flex-end'
             }}>
+              <FooterLink href="/blog/b2b-decision-makers-2026">
+                B2B Decision Makers 2026
+              </FooterLink>
+              <FooterLink href="/blog/email-finder-guide-2026">
+                Email Finder Guide 2026
+              </FooterLink>
+              <FooterLink href="/blog/local-business-prospecting-2026">
+                Local Business Prospecting
+              </FooterLink>
               <FooterLink href="/blog/invisible-wall">
                 The Invisible Wall
               </FooterLink>
